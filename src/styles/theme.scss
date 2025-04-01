@@ -55,6 +55,14 @@ $trait-size: var(--color-bg-size);
 $journal-sidebar-background: $primary;
 
 /**
+ * External components
+ */
+
+// Polyglot
+$polyglot-background: var(--blind-roll);
+$polyglot-border: 1px solid #720073;
+
+/**
  * Mixins & functions
  */
 

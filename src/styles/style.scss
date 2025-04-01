@@ -10,3 +10,6 @@
 
 // this one doesn't style a specific component, but rather the journal window itself.
 @use './components/window';
+
+// and finally support for external libraries that are optionally supported, uncomment if not used.
+@use './components/external/polyglot';

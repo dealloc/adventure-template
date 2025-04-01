@@ -1,0 +1,9 @@
+@use '../../theme.scss';
+
+@include theme.journal-page {
+    .polyglot-journal {
+        border: theme.$polyglot-border;
+        background: theme.$polyglot-background;
+        padding: 0 4px;
+    }
+}
