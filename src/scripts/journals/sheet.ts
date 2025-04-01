@@ -1,6 +1,6 @@
 import CONSTANTS from "../constants";
 
-export default class AdventureJournalSheet extends JournalSheet {
+export default class CrownOfTheKoboldKingJournalSheet extends JournalSheet {
     static get defaultOptions(): JournalSheetOptions {
         return {
             ...JournalSheet.defaultOptions,
@@ -13,7 +13,7 @@ export default class AdventureJournalSheet extends JournalSheet {
         for (const [key, heading] of Object.entries(toc)) {
             // if our heading contains a <span> element it's most likely a styled title we don't want to show.
             // we remove it from the ToC (Table of Contents).
-            if (heading.element?.querySelectorAll('span')?.length) {
+            if (heading.element?.querySelectorAll('span')?.length || heading.element?.classList?.contains('hide-toc')) {
                 delete toc[key];
             }
         }
