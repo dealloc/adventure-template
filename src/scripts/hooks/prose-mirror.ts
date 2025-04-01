@@ -67,6 +67,19 @@ export const onGetProseMirrorMenuDropDowns = function (menu, dropdowns) {
 
                     return true; // Command executed successfully
                 }
+            },
+            {
+                action: 'pf2e-as-aside',
+                class: 'pf2e-as-aside',
+                title: 'Aside block',
+                cmd(state, dispatch, view) {
+                    _insertHtml(state, dispatch, `<aside class="right">
+                        <h2 class="hide-toc">This is an aside title</h2>
+                        <p>this is an aside block</p>
+                    </aside>`);
+
+                    return true; // Command executed successfully
+                }
             }
         ],
     };
