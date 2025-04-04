@@ -3,6 +3,7 @@ import { onGetProseMirrorMenuDropDowns } from "./hooks/prose-mirror";
 import { onSequencerReady } from './hooks/sequencer';
 import AdventureJournalSheet from './journals/sheet';
 import AdventureJournalTextPageSheet from './journals/text-page';
+import { initializeMacros } from './macros';
 
 Hooks.once('init', () => {
     DocumentSheetConfig.registerSheet(JournalEntry, CONSTANTS.id, AdventureJournalSheet, {
@@ -19,6 +20,7 @@ Hooks.once('init', () => {
         label: `${CONSTANTS.name} text`
     });
 
+    initializeMacros();
     console.info('Loaded', CONSTANTS.id);
 });
 
