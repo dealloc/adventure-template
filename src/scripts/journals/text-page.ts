@@ -13,6 +13,7 @@ export default class AdventureJournalTextPageSheet extends JournalTextPageSheet 
     protected async _renderInner(data: ReturnType<this["getData"]>): Promise<JQuery<HTMLElement>> {
         const result = await super._renderInner(data);
         this.#updateImages(result);
+        result.find('[data-id][data-type="Scene"]').on('click', this.#openScene);
 
         return result;
     }
@@ -30,5 +31,17 @@ export default class AdventureJournalTextPageSheet extends JournalTextPageSheet 
                 $img.attr("style", `${existingStyle} ${shapeOutsideRule}`.trim());
             }
         });
+    }
+
+    #openScene(event: JQuery.Event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const id: string = (event as any).currentTarget.dataset.id;
+        const scene = game.scenes.get(id);
+
+        if (scene) {
+            (scene as any).view();
+        }
     }
 }
