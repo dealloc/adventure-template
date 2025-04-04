@@ -18,4 +18,10 @@
             background: transparent;
         }
     }
+
+    span[data-pf2-action]::before {
+        // sometimes it's an image we invert, sometimes it's text which gets inverted so light -> dark and vice versa
+        color: theme.$text-dark;
+        filter: invert(1);
+    }
 }
