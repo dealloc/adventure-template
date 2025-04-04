@@ -1,5 +1,6 @@
 import CONSTANTS from './constants';
 import { onGetProseMirrorMenuDropDowns } from "./hooks/prose-mirror";
+import { onSequencerReady } from './hooks/sequencer';
 import AdventureJournalSheet from './journals/sheet';
 import AdventureJournalTextPageSheet from './journals/text-page';
 
@@ -20,6 +21,8 @@ Hooks.once('init', () => {
 
     console.info('Loaded', CONSTANTS.id);
 });
+
+Hooks.on('sequencerReady', onSequencerReady);
 
 // Only hook the prosemirror extensions in debug mode.
 // This code gets removed in production
