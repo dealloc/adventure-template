@@ -4,7 +4,7 @@ import CONSTANTS from '../constants';
 export default function getModule(): Module {
     const module = game.modules.get(CONSTANTS.id);
 
-    if (module === null) {
+    if (module === null || module === undefined) {
         throw new Error(`Failed to retrieve module ${CONSTANTS.id}`);
     }
 
