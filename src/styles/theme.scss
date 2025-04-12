@@ -13,6 +13,9 @@ $text-dark: var(--color-text-dark-primary);
 // Whitespace
 $journal-padding: 0.5em;
 
+// Adventure namespace
+$adventure-name: "adventure-template";
+
 /**
  * Components
  */
@@ -73,7 +76,7 @@ $polyglot-border: 1px solid #720073;
 // mixin to wrap all custom styles with a selector for this module's journals only.
 // change .adventure-template to the ID your module uses, don't forget to update it in constants.ts too.
 @mixin journal-page {
-    .sheet.journal-entry.adventure-template {
+    .sheet.journal-entry.#{$adventure-name} {
         @content;
     }
 }

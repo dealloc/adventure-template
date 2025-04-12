@@ -48,17 +48,13 @@ After copying this template, you'll want to update the default slug (`adventure-
 - `/src/constants.ts`
     - update the `id` and `name` with the same as the `module.json` file
 - `/src/styles/theme.scss`
-    - update the `journal-page` mixin to use the `id` (see below)
+    - update the `$adventure-name` mixin to use the `id` (see below)
 
 ```scss
 // theme.scss
 
-@mixin journal-page {
-    //                   ⬇️ replace adventure-template with your ID (KEEP THE DOT)
-    .sheet.journal-entry.adventure-template {
-        @content;
-    }
-}
+//               ⬇️ replace adventure-template with your ID (DO NOT USE SPACES!)
+$adventure-name: "adventure-template";
 ```
 
 ## Automated publishing

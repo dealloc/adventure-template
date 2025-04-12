@@ -1,0 +1,8 @@
+@use '../theme.scss';
+
+.adventure-importer.#{theme.$adventure-name} {
+    // Theme the import window of the adventure.
+    // Also look under /templates/importer.hbs to modify the HTML.
+
+    background: inherit; // just a dummy rule to avoid warnings for empty rules.
+}

@@ -28,8 +28,10 @@
         }
 
         &:hover {
+            cursor: pointer;
             color: theme.$narrate-text-hover;
             background: theme.$narrate-background-hover;
+
             &::after {
                 background: theme.$narrate-background-hover;
             }

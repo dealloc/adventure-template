@@ -1,6 +1,18 @@
 @use '../theme.scss';
 
 @include theme.journal-page {
+    text-align: justify;
     color: theme.$text-dark;
     font-size: theme.$text-size;
+
+    .ar {
+        text-transform: uppercase;
+
+        &::after {
+            content: " AR";
+            font-size: 14px;
+            font-weight: bold;
+            font-family: 'Amiri';
+        }
+    }
 }
