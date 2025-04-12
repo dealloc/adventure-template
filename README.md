@@ -30,8 +30,10 @@ The template has following folder structure:
 - `src`
   - `scripts` contains the Javascript handling interactivity etc
     - `hooks` contains the implementation of hooks this module listens to (like Sequencer, ProseMirror, ...)
+    - `importer` contains the custom importer for your adventure template, allowing you to customize the process.
     - `journals` this is where the journal enhancement code lives
     - `macros` put the macros your module uses here (see [why put macros in scripts](#why-put-macros-in-scripts))
+        - `blank-macros.ts` a boilerplate empty macro to demonstrate how to write your own
     - `utilities` as it says on the tin, contains utility methods to make your life easier
     - `constants.ts` contains module wide constants to allow reusing identifiers etc
     - `index.ts` this is the file that Foundry starts executing when your module is loaded
@@ -114,6 +116,11 @@ These automatically show a `💬` bubble on the block, and when clicked post the
     <p>Narrate me</p>
 </section>
 ```
+
+### Years in journals
+Oftentimes you'll write years in your journal, and want to style them.
+If you wrap them in `<span class="ar">0000</span>` (`0000` is an example of the year here) it will be formatted as `0000 AR` automatically.
+You can further customize this in `/src/styles/components/_typography.scss`.
 
 ### Rolls styling
 Pathfinder Second Edition's system module for Foundry has a built in way to call for rolls, saves etc.
@@ -198,14 +205,18 @@ This means if you fix bugs or update macros the adventure would need to be re-im
 By putting them in code, and then executing that code from the macro (as opposed to putting the code directly in a macro in Foundry)
 you can update and fix things in macros by simply updating the module, and all macros will automatically reference the updated code.
 
-for example, to use the `setWeather` macro ([set-weather.ts](src/scripts/macros/set-weather.ts)) you'd make a macro in Foundry like this (and change `adventure-template` to what you put in the constants as described in [getting started](#getting-started)):
+for example, to use the `blankMacro` macro ([blank-macro.ts](src/scripts/macros/blank-macro.ts)) you'd make a macro in Foundry like this (and change `adventure-template` to what you put in the constants as described in [getting started](#getting-started)):
 ```javascript
 const module = game.modules.get('adventure-template');
 
-module.macros.setWeather();
+// token, actor and scope are automatically passed into the macro by Foundry.
+module.macros.blankMacro(token, actor, scope);
 ```
 
-### Custom importers
+You can use `blank-macro.ts` as a boilerplate for your own macros.
+The only real "requirement" assumed by this module is that you export a default function.
+
+## Custom importers
 Out of the box support for customizing the look and feel of the import screen of your adventure! A custom importer is setup under `/src/scripts/importer/adventure-importer.ts` and a template under `/templates/importer.hbs`.
 If you require further control you can check out `/src/styles/components/_importer.scss`.
 

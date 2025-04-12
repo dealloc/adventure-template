@@ -1,3 +1,4 @@
+import blankMacro from "./macros/blank-macro";
 import setWeather from "./macros/set-weather";
 import updateLanding from "./macros/update-landing";
 import updateWorldDetails from "./macros/update-world-details";
@@ -10,5 +11,6 @@ export function initializeMacros(): void {
         setWeather,
         updateLanding,
         updateWorldDetails,
+        blankMacro,
     };
 }
