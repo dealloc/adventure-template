@@ -20,6 +20,7 @@ This module helps you get started by providing the most common building blocks f
 - [out of the box support for popular modules](#automatically-enhance-3rd-party-modules)
 - [why put macros in scripts?](#why-put-macros-in-scripts)
 - [customizable journals](#customizing-journals)
+- [custom importer](#custom-importers)
 
 ## Getting started
 The template has following folder structure:
@@ -203,6 +204,10 @@ const module = game.modules.get('adventure-template');
 
 module.macros.setWeather();
 ```
+
+### Custom importers
+Out of the box support for customizing the look and feel of the import screen of your adventure! A custom importer is setup under `/src/scripts/importer/adventure-importer.ts` and a template under `/templates/importer.hbs`.
+If you require further control you can check out `/src/styles/components/_importer.scss`.
 
 # Helpful links
 Below is a non-exhaustive list of links that you should read when developing modules/adventures
