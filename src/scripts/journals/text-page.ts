@@ -7,8 +7,16 @@ export default class AdventureJournalTextPageSheet extends JournalTextPageSheet 
         super.activateListeners(html);
     }
 
-    #narrate() {
-        alert('narrate me!');
+    async #narrate() {
+        const content = $(this).html();
+        const players = ChatMessage.getWhisperRecipients('players');
+
+        for (const player of players) {
+            ChatMessage.create({
+                content: content,
+                whisper: player.id,
+            } as any);
+        }
     }
 
     protected async _renderInner(data: ReturnType<this["getData"]>): Promise<JQuery<HTMLElement>> {
@@ -47,7 +55,7 @@ export default class AdventureJournalTextPageSheet extends JournalTextPageSheet 
                 $(link).on('click', async (event) => {
                     event.preventDefault();
                     event.stopPropagation();
-            
+
                     await (sound as any).document.update({ hidden: !sound.document.hidden });
                     const icon = sound.document.hidden ? 'play' : 'stop';
                     $(link).html(`<i class="fas fa-${icon}"></i> ${$(link).text()}`);

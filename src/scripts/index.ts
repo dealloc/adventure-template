@@ -1,30 +1,14 @@
-import CONSTANTS from './constants';
+import { onInitializeDynamicTokenRingConfig } from "./hooks/dynamic-token-ring";
+import { onInitialized } from "./hooks/init";
 import { onGetProseMirrorMenuDropDowns } from "./hooks/prose-mirror";
 import { onSequencerReady } from './hooks/sequencer';
-import AdventureJournalSheet from './journals/sheet';
-import AdventureJournalTextPageSheet from './journals/text-page';
-import { initializeMacros } from './macros';
 
-Hooks.once('init', () => {
-    DocumentSheetConfig.registerSheet(JournalEntry, CONSTANTS.id, AdventureJournalSheet, {
-        types: ['base'],
-        makeDefault: false,
-        canBeDefault: false,
-        label: CONSTANTS.name
-    });
-
-    DocumentSheetConfig.registerSheet(JournalEntryPage, CONSTANTS.id, AdventureJournalTextPageSheet, {
-        types: ['text'],
-        makeDefault: false,
-        canBeDefault: false,
-        label: `${CONSTANTS.name} text`
-    });
-
-    initializeMacros();
-    console.info('Loaded', CONSTANTS.id);
-});
-
+// Called when Foundry initializes
+Hooks.once('init', onInitialized);
+// Called when Sequencer is ready to add assets
 Hooks.on('sequencerReady', onSequencerReady);
+// Called to register the dynamic token ring under assets/spritesheets. Remove this if your campaign doesn't have a ring to register.
+Hooks.on("initializeDynamicTokenRingConfig", onInitializeDynamicTokenRingConfig);
 
 // Only hook the prosemirror extensions in debug mode.
 // This code gets removed in production

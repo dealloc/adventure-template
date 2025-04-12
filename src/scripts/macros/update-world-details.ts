@@ -1,7 +1,6 @@
-import CONSTANTS from '../constants';
+import CONSTANTS from "../constants";
 
-/** Update the login screen with the description and background image from constants.ts */
-export default async function updateWorldDetails() {
+export default async function(): Promise<void> {
     const url = foundry.utils.getRoute('setup');
     const details = {
         id: (game.world as any).id,
@@ -22,4 +21,4 @@ export default async function updateWorldDetails() {
     });
 
     game.world.updateSource(source);
-};
+}
