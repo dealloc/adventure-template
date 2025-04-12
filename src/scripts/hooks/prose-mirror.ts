@@ -80,7 +80,18 @@ export const onGetProseMirrorMenuDropDowns = function (menu, dropdowns) {
 
                     return true; // Command executed successfully
                 }
-            }
+            },
+            {
+                action: "pf2e-as-year",
+                class: "pf2e-as-year",
+                title: "Year Absalom Reckoning",
+                mark: menu.schema.marks.span,
+                attrs: { _preserve: { class: "ar" } },
+                priority: 1,
+                cmd: foundry.prosemirror.commands.toggleMark(menu.schema.marks.span, {
+                    _preserve: { class: "ar" },
+                }),
+            },
         ],
     };
 };
