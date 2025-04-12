@@ -66,6 +66,10 @@ $polyglot-border: 1px solid #720073;
  * Mixins & functions
  */
 
+@function asset($url) {
+    @return url('/modules/adventure-template/assets' + $url);
+}
+
 // mixin to wrap all custom styles with a selector for this module's journals only.
 // change .adventure-template to the ID your module uses, don't forget to update it in constants.ts too.
 @mixin journal-page {
