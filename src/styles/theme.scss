@@ -75,7 +75,7 @@ $polyglot-border: 1px solid #720073;
  */
 
 @function asset($url) {
-    @return url('/modules/adventure-template/assets' + $url);
+    @return url('/modules/#{$adventure-name}/assets#{$url}');
 }
 
 // mixin to wrap all custom styles with a selector for this module's journals only.
