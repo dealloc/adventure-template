@@ -7,6 +7,7 @@
         background: theme.$aside-background;
         border-left: 2px solid theme.$aside-border-color;
         width: calc(50% + theme.$journal-padding);
+        margin-left: theme.$journal-padding;
         padding-left: theme.$journal-padding;
 
         @include theme.headings {

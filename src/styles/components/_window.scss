@@ -35,7 +35,7 @@
     }
 
     .journal-entry-content {
-        // ...
+        background: theme.$journal-content-background;
 
         .journal-header {
             display: none;

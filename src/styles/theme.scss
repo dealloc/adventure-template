@@ -25,6 +25,9 @@ $adventure-name: "adventure-template";
 $encounter-background: $tertiary;
 $encounter-text: $text-dark;
 
+// images
+$shape-margin: 0.5em;
+
 // narrate blocks
 $narrate-background: $tertiary;
 $narrate-background-hover: color.adjust($tertiary, $lightness: -20%);
@@ -57,6 +60,7 @@ $trait-size: var(--color-bg-size);
 
 // Journal window
 $journal-sidebar-background: $primary;
+$journal-content-background: url(/ui/parchment.jpg) repeat;
 
 /**
  * External components

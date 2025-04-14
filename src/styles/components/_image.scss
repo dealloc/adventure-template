@@ -4,5 +4,9 @@
 @include theme.journal-page {
     img {
         border: none;
+
+        &.outside {
+            shape-margin: theme.$shape-margin;
+        }
     }
 }
