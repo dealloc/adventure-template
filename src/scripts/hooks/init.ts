@@ -4,6 +4,7 @@ import AdventureJournalTextPageSheet from '../journals/text-page';
 import CustomImporter from '../importer/adventure-importer';
 import { initializeMacros } from '../macros';
 import { initializeTemplates } from '../templates';
+import { initializeSettings } from '../settings';
 
 export function onInitialized() {
     DocumentSheetConfig.registerSheet(JournalEntry, CONSTANTS.id, AdventureJournalSheet, {
@@ -25,6 +26,7 @@ export function onInitialized() {
         makeDefault: false,
     });
 
+    initializeSettings();
     initializeTemplates();
     initializeMacros();
     console.info('Loaded', CONSTANTS.id);
