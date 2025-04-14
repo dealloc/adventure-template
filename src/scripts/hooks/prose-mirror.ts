@@ -21,6 +21,7 @@ const _insertHtml = (state, dispatch, html: string) => {
 };
 
 export function onGetProseMirrorMenuDropDowns(menu, dropdowns) {
+    console.info(menu, dropdowns);
     dropdowns.format.entries.push({
         action: 'adventure-template',
         title: 'Adventure Template',
@@ -57,6 +58,16 @@ export function onGetProseMirrorMenuDropDowns(menu, dropdowns) {
 
                     return true; // Command executed successfully
                 }
+            },
+            {
+                action: "pf2e-as-narrate",
+                class: "pf2e-as-narrate",
+                title: "Narrate",
+                cmd: foundry.prosemirror.commands.wrapIn(menu.schema.nodes.section, {
+                    _preserve: {
+                        class: "narrate"
+                    }
+                }),
             },
             {
                 action: "pf2e-as-year",
