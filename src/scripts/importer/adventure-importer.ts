@@ -1,4 +1,5 @@
 import CONSTANTS from "../constants";
+import { asset } from "../utilities/module-path";
 
 export default class Pf2eAdventureImporter extends AdventureImporter {
     static get defaultOptions(): AdventureImporter.Options {
@@ -12,6 +13,6 @@ export default class Pf2eAdventureImporter extends AdventureImporter {
     }
 
     get template(): string {
-        return `modules/${CONSTANTS.id}/templates/importer.hbs`;
+        return asset`/templates/importer.hbs`;
     }
 }

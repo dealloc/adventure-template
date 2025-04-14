@@ -1,4 +1,5 @@
 import CONSTANTS from "../constants";
+import { asset } from "../utilities/module-path";
 
 export default async function(): Promise<void> {
     const url = foundry.utils.getRoute('setup');
@@ -6,7 +7,7 @@ export default async function(): Promise<void> {
         id: (game.world as any).id,
         action: 'editWorld',
         description: CONSTANTS.loginScreen.description,
-        background: `modules/${CONSTANTS.id}${CONSTANTS.loginScreen.background}`
+        background: asset(CONSTANTS.loginScreen.background)
     };
 
     // If there's no background, don't update it
