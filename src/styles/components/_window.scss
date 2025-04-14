@@ -33,4 +33,12 @@
     .window-header {
         color: theme.$text-light;
     }
+
+    .journal-entry-content {
+        // ...
+
+        .journal-header {
+            display: none;
+        }
+    }
 }
