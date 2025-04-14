@@ -7,5 +7,6 @@ export default {
     },
     scenes: {
         landing: 'LANDING ID HERE',
-    }
+    },
+    adventure: null, // the ID of the adventure compendium from which to import.
 };
