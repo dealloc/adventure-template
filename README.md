@@ -22,6 +22,12 @@ This module helps you get started by providing the most common building blocks f
 - [customizable journals](#customizing-journals)
 - [custom importer](#custom-importers)
 
+## Tooling
+The following tools are expected for optimal usage of this template:
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Affinity Photo](https://affinity.serif.com/en-gb/) (to use the provided token template)
+- [TexturePacker](https://www.codeandweb.com/texturepacker) (to pack the spritesheet of the tokens)
+
 ## Getting started
 The template has following folder structure:
 - `.github` contains the workflow ([automated publishing](#automated-publishing))
@@ -219,6 +225,25 @@ The only real "requirement" assumed by this module is that you export a default 
 ## Custom importers
 Out of the box support for customizing the look and feel of the import screen of your adventure! A custom importer is setup under `/src/scripts/importer/adventure-importer.ts` and a template under `/templates/importer.hbs`.
 If you require further control you can check out `/src/styles/components/_importer.scss`.
+
+## Creating custom tokens
+Before diving into this, read Foundry's [official documentation](https://foundryvtt.com/article/dynamic-token-rings/) about creating dynamic token rings.
+This project provides a template Affinity Photo file ([token.afphoto](./src/tokens/token.afphoto)) and a TexturePacker project file ([token-spritesheet.tps](./src/tokens/token-spritesheet.tps)).
+
+If you don't have Affinity Photo, you can export your sprites to `assets/spritesheets/rings` in `.webp` format.
+It expects the following files present:
+- gnt-token-bkg.webp (2048x2048)
+- gnt-token.webp (2048x2048)
+- lrg-token-bkg.webp (1024x1024)
+- lrg-token.webp (1024x1024)
+- med-token-bkg.webp (512x512)
+- med-token.webp (512x512)
+- tny-token-bkg.webp (256x256)
+- tny-token.webp (256x256)
+
+Publishing the spritesheet generates a `ring.json` file under `assets/spritesheets` and a corresponding `.webp` spritesheet.
+
+The code for registering your custom token ring (in case you'd want to modify it or register more) lives under [dynamic-token-ring.ts](./src/scripts/hooks/dynamic-token-ring.ts)
 
 # Helpful links
 Below is a non-exhaustive list of links that you should read when developing modules/adventures
