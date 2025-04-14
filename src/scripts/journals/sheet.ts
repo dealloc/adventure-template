@@ -27,7 +27,7 @@ export default class AdventureJournalSheet extends JournalSheet {
         if (heading.element?.querySelectorAll('span').length && !heading.element?.classList?.contains('show-toc')) {
             return true;
         }
-        if (heading.element?.classList?.contains('hide-toc')) {
+        if (heading.element?.classList?.contains('no-toc')) {
             return true;
         }
 
