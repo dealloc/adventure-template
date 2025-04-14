@@ -1,4 +1,5 @@
 // This file contains hooks to insert ProseMirror (journal) functionality.
+import { asset } from "../utilities/module-path";
 
 // helper function to insert HTML blocks, as that's what most of these snippets do.
 const _insertHtml = (state, dispatch, html: string) => {
@@ -19,29 +20,18 @@ const _insertHtml = (state, dispatch, html: string) => {
     }
 };
 
-export const onGetProseMirrorMenuDropDowns = function (menu, dropdowns) {
-    dropdowns.adventureSnippets = {
-        title: 'EDITOR.AdventureSnippets',
-        cssClass: 'adventureSnippets',
-        icon: '<i class="fas fa-copy"></i>',
-        entries: [
+export function onGetProseMirrorMenuDropDowns(menu, dropdowns) {
+    dropdowns.format.entries.push({
+        action: 'adventure-template',
+        title: 'Adventure Template',
+        children: [
             {
                 action: 'pf2e-as-encounter',
                 class: 'pf2e-as-encounter',
                 title: 'Encounter block',
-                cmd(state, dispatch, view) {
-                    _insertHtml(state, dispatch, `<section class="encounter">
-    <div class="header">
-        <img src="icons/fvtt.png">
-        <h2>TITLE<span>TYPE</span></h2>
-        <p>
-            <span class="link">
-                @UUID[Compendium.pf2e.journals.JournalEntry.6L2eweJuM8W7OCf2.JournalEntryPage.JYJd1xZwqUNRNsqG]{Remaster Changes}
-            </span>
-        </p>
-    </div>
-    <p><strong>bottom text</strong></p>
-</section>`);
+                async cmd(state, dispatch, view) {
+                    const template = await renderTemplate(asset('/templates/editor/encounter.hbs'), {});
+                    _insertHtml(state, dispatch, template);
 
                     return true; // Command executed successfully
                 }
@@ -50,20 +40,9 @@ export const onGetProseMirrorMenuDropDowns = function (menu, dropdowns) {
                 action: 'pf2e-as-statblock',
                 class: 'pf2e-as-statblock',
                 title: 'Stat block',
-                cmd(state, dispatch, view) {
-                    _insertHtml(state, dispatch, `<section class="statblock">
-    <h1>Name <span>Type 0</span></h1>
-    <section class="traits">
-        <p class="alignment">N</p>
-        <p>trait</p>
-    </section>
-    <p><em>short italic description</em></p>
-    <p><strong>property</strong> description</p>
-    <p><strong>property</strong> description</p>
-    <hr>
-    <p><strong>property</strong> description</p>
-    <p><strong>property</strong> description</p>
-</section>`);
+                async cmd(state, dispatch, view) {
+                    const template = await renderTemplate(asset('/templates/editor/statblock.hbs'), {});
+                    _insertHtml(state, dispatch, template);
 
                     return true; // Command executed successfully
                 }
@@ -72,11 +51,9 @@ export const onGetProseMirrorMenuDropDowns = function (menu, dropdowns) {
                 action: 'pf2e-as-aside',
                 class: 'pf2e-as-aside',
                 title: 'Aside block',
-                cmd(state, dispatch, view) {
-                    _insertHtml(state, dispatch, `<aside class="right">
-                        <h2 class="hide-toc">This is an aside title</h2>
-                        <p>this is an aside block</p>
-                    </aside>`);
+                async cmd(state, dispatch, view) {
+                    const template = await renderTemplate(asset('/templates/editor/aside.hbs'), {});
+                    _insertHtml(state, dispatch, template);
 
                     return true; // Command executed successfully
                 }
@@ -99,9 +76,9 @@ export const onGetProseMirrorMenuDropDowns = function (menu, dropdowns) {
                 cmd(state, dispatch, view) {
                     new FilePicker({
                         type: 'image',
-                        callback: (path) => {
-                            _insertHtml(state, dispatch, `<img src="${path}" class="banner-image full-width" />
-                                <h1 class="banner-title">this is a title</h1>`);
+                        callback: async (path) => {
+                            const template = await renderTemplate(asset('/templates/editor/banner.hbs'), { path });
+                            _insertHtml(state, dispatch, template);
                         },
                     }).browse();
 
@@ -109,5 +86,5 @@ export const onGetProseMirrorMenuDropDowns = function (menu, dropdowns) {
                 }
             },
         ],
-    };
+    });
 };
