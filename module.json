@@ -29,6 +29,13 @@
   "styles": [
     "module.css"
   ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "path/en.json"
+    }
+  ],
   "flags": {
     "hotReload": {
       "extensions": [
