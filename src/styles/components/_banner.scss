@@ -1,0 +1,26 @@
+@use '../theme.scss';
+
+@include theme.journal-page {
+    .banner-image {
+        max-height: 500px;
+        object-fit: cover;
+    }
+
+    @include theme.headings {
+        &.banner-title {
+            // 4px is the gap between items in the journal
+            margin-top: -4px;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            font-family: 'Open Sans', var(--font-primary);
+    
+            @include theme.border-image("/layout/border.png", (
+                "top": 272,
+                "right": 272,
+                "bottom": 272,
+                "left": 272
+            ), 20px);
+        }
+    }
+}

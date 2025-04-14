@@ -92,6 +92,22 @@ export const onGetProseMirrorMenuDropDowns = function (menu, dropdowns) {
                     _preserve: { class: "ar" },
                 }),
             },
+            {
+                action: 'pf2e-as-banner',
+                class: 'pf2e-as-banner',
+                title: 'Image banner with title',
+                cmd(state, dispatch, view) {
+                    new FilePicker({
+                        type: 'image',
+                        callback: (path) => {
+                            _insertHtml(state, dispatch, `<img src="${path}" class="banner-image full-width" />
+                                <h1 class="banner-title">this is a title</h1>`);
+                        },
+                    }).browse();
+
+                    return true; // Command executed successfully
+                }
+            },
         ],
     };
 };

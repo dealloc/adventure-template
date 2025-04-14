@@ -7,8 +7,9 @@
     }
 
     .full-width {
-        width: 100%;
-        padding-left: - theme.$journal-padding;
-        padding-right: - theme.$journal-padding;
+        width: calc(100% + theme.$journal-padding * 2);
+        margin-left: - theme.$journal-padding;
+        margin-right: - theme.$journal-padding;
+        max-width: none;
     }
 }

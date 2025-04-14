@@ -2,6 +2,7 @@
 @use './components/table';
 @use './components/image';
 @use './components/rolls';
+@use './components/banner';
 @use './components/traits';
 @use './components/narrate';
 @use './components/sidebar';
@@ -14,3 +15,6 @@
 
 // and finally support for external libraries that are optionally supported, uncomment if not used.
 @use './components/external/polyglot';
+
+// and of course, custom fonts
+@use './fonts/open-sans';
