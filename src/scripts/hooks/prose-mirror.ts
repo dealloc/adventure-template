@@ -1,4 +1,5 @@
 // This file contains hooks to insert ProseMirror (journal) functionality.
+import CONSTANTS from "../constants";
 import { asset } from "../utilities/module-path";
 
 // helper function to insert HTML blocks, as that's what most of these snippets do.
@@ -21,7 +22,7 @@ const _insertHtml = (state, dispatch, html: string) => {
 
 export function onGetProseMirrorMenuDropDowns(menu, dropdowns) {
     dropdowns.format.entries.push({
-        action: 'adventure-template',
+        action: CONSTANTS.id,
         title: 'Adventure Template',
         children: [
             {
