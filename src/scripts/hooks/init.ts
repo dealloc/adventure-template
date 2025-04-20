@@ -7,14 +7,14 @@ import { initializeTemplates } from '../templates';
 import { initializeSettings } from '../settings';
 
 export function onInitialized() {
-    DocumentSheetConfig.registerSheet(JournalEntry, CONSTANTS.id, AdventureJournalSheet, {
+    DocumentSheetConfig.registerSheet(JournalEntry, CONSTANTS.id, AdventureJournalSheet as any, {
         types: ['base'],
         makeDefault: false,
         canBeDefault: false,
         label: CONSTANTS.name
     });
 
-    DocumentSheetConfig.registerSheet(JournalEntryPage, CONSTANTS.id, AdventureJournalTextPageSheet, {
+    DocumentSheetConfig.registerSheet(JournalEntryPage, CONSTANTS.id, AdventureJournalTextPageSheet as any, {
         types: ['text'],
         makeDefault: false,
         canBeDefault: false,

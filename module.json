@@ -3,8 +3,8 @@
   "title": "Adventure Template",
   "version": "1.0.0",
   "compatibility": {
-    "minimum": "12",
-    "verified": "12"
+    "minimum": "13",
+    "verified": "13"
   },
   "relationships": {
     "systems": [
@@ -27,13 +27,16 @@
     "module.js"
   ],
   "styles": [
-    "module.css"
+    {
+      "src": "module.css"
+    }
   ],
   "languages": [
     {
       "lang": "en",
       "name": "English",
-      "path": "lang/en.json"
+      "path": "lang/en.json",
+      "flags": {}
     }
   ],
   "flags": {

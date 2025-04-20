@@ -12,7 +12,6 @@ const _insertHtml = (state, dispatch, html: string) => {
 
     // Convert HTML to ProseMirror nodes using the schema's DOMParser
     let fragment = (ProseMirror as any).DOMParser.fromSchema(schema).parseSlice(wrapper).content;
-    console.info(fragment);
 
     // Apply the transformation if dispatch is provided
     if (dispatch) {
@@ -21,7 +20,6 @@ const _insertHtml = (state, dispatch, html: string) => {
 };
 
 export function onGetProseMirrorMenuDropDowns(menu, dropdowns) {
-    console.info(menu, dropdowns);
     dropdowns.format.entries.push({
         action: 'adventure-template',
         title: 'Adventure Template',
