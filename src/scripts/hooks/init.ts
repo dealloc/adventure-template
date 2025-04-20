@@ -21,7 +21,7 @@ export function onInitialized() {
         label: `${CONSTANTS.name} text`
     });
 
-    DocumentSheetConfig.registerSheet(Adventure, CONSTANTS.id, CustomImporter, {
+    DocumentSheetConfig.registerSheet(Adventure, CONSTANTS.id, CustomImporter as any, {
         label: `${CONSTANTS.name} importer`,
         makeDefault: false,
     });

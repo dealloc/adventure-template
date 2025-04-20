@@ -6,7 +6,7 @@ interface DialogOption<T> {
 
 export default async function pickOptionDialog<T>(options: DialogOption<T>[], content = ''): Promise<T | null> {
     return new Promise<T | null>((resolve) => {
-        new Dialog({
+        new foundry.applications.api.DialogV2({
             title: 'Select an option',
             content,
             buttons: options.reduce((result, option) => {
