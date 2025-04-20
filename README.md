@@ -6,6 +6,10 @@ This module helps you get started by providing the most common building blocks f
 > [!IMPORTANT]
 > See https://paizo.com/pathfinder to learn more about Pathfinder. Paizo Inc. does not guarantee compatibility, and does not endorse this product.
 
+If you use this template, I'd love to hear from you! It's always fun to see what people do with my work.
+
+I'd also appreciate being credited if relevant <3
+
 # What's inside
 - [automated publishing](#automated-publishing)
 - [convenient styling](#convenient-styling)
