@@ -1,12 +1,22 @@
-@use '../../theme.scss';
+@use '../../utils';
+@use '../../theme';
 
-@include theme.journal-page {
+@include utils.journal-page('light', 'dark') using ($theme) {
     .polyglot-journal {
-        padding: 0 4px;
+        padding: 0 var(--space-s);
 
         &:not([data-tooltip="????"]) {
             border: theme.$polyglot-border;
-            background: theme.$polyglot-background;
+            @include utils.themed(
+                --polyglot-journal-color,
+                theme.$polyglot-background,
+                $theme
+            );
+            @include utils.themed(
+                --polyglot-journal-opacity,
+                theme.$polyglot-opacity,
+                $theme
+            );
         }
     }
 }

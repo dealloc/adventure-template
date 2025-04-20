@@ -1,39 +1,16 @@
+@use '../utils';
 @use '../theme';
 
-@include theme.journal-page {
-    table {
-        width: calc(100% - 1em);
+@include utils.journal-page('light', 'dark') using ($theme) {
+    @include utils.themed(
+        --table-header-bg-color,
+        theme.$table-header-bg-color,
+        $theme
+    );
 
-        thead {
-            text-align: center;
-            color: theme.$table-header-text;
-            background: theme.$table-header-background;
-
-            .inline-roll {
-                text-shadow: none;
-                color: theme.$table-header-text-roll;
-                background: theme.$table-header-background-roll;
-
-                i {
-                    color: theme.$text-dark;
-                }
-            }
-        }
-
-        tr {
-            border: 1px solid black;
-        }
-
-        td {
-            text-align: center;
-            border-right: 1px solid black;
-
-            &:first-child {
-                padding-right: 10px;
-            }
-            &:nth-child(2) {
-                padding-left: 10px;
-            }
-        }
-    }
+    @include utils.themed(
+        --table-header-border-color,
+        theme.$table-header-bg-color,
+        $theme
+    );
 }

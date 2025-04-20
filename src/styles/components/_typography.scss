@@ -1,9 +1,8 @@
-@use '../theme.scss';
+@use '../utils';
+@use '../theme';
 
-@include theme.journal-page {
+@include utils.journal-page {
     text-align: justify;
-    color: theme.$text-dark;
-    font-size: theme.$text-size;
 
     .ar {
         text-transform: uppercase;

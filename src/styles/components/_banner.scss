@@ -1,26 +1,22 @@
-@use '../theme.scss';
+@use '../utils';
+@use '../theme';
 
-@include theme.journal-page {
+@include utils.journal-page() {
     .banner-image {
-        max-height: 500px;
         object-fit: cover;
+        max-height: theme.$banner-max-height;
     }
 
-    @include theme.headings {
+    @include utils.headings {
         &.banner-title {
             // 4px is the gap between items in the journal
-            margin-top: -4px;
+            margin-top: calc(0px - var(--space-s));
             font-weight: bold;
             text-align: center;
             text-transform: uppercase;
-            font-family: 'Open Sans', var(--font-primary);
+            font-family: theme.$banner-font;
     
-            @include theme.border-image("/layout/border.png", (
-                "top": 272,
-                "right": 272,
-                "bottom": 272,
-                "left": 272
-            ), 20px);
+            @include utils.border-image("/layout/border.png", 272, 20px);
         }
     }
 }

@@ -1,12 +1,13 @@
-@use '../theme.scss';
+@use '../utils';
+@use '../theme';
 
 // overrides default <img /> styling
-@include theme.journal-page {
+@include utils.journal-page {
     img {
         border: none;
 
         &.outside {
-            shape-margin: theme.$shape-margin;
+            shape-margin: theme.$image-margin;
         }
     }
 }

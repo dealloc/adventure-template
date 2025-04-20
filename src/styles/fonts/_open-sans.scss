@@ -1,4 +1,4 @@
-@use '../theme.scss';
+@use '../utils';
 
 @font-face {
     font-family: 'Open Sans';
@@ -7,7 +7,7 @@
     font-stretch: 100%;
     font-optical-sizing: auto;
     font-variation-settings: "wdth" 100;
-    src: theme.asset('/fonts/OpenSans.ttf');
+    src: utils.asset('/fonts/OpenSans.ttf');
 }
 
 @font-face {
@@ -17,5 +17,5 @@
     font-stretch: 100%;
     font-optical-sizing: auto;
     font-variation-settings: "wdth" 100;
-    src: theme.asset('/fonts/OpenSans-italic.ttf');
+    src: utils.asset('/fonts/OpenSans-italic.ttf');
 }

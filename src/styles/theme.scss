@@ -1,114 +1,88 @@
-@use "sass:map";
-@use "sass:color";
-
-// Colouring
-$primary: #5e0000;
-$secondary: #171f69;
-$tertiary: #e9d7a1;
-
-// Typography
-$text-size: 16px;
-$text-light: var(--color-text-light-0);
-$text-dark: var(--color-text-dark-primary);
-
-// Whitespace
-$journal-padding: 0.5em;
+@use 'sass:list';
 
 // Adventure namespace
 $adventure-name: "adventure-template";
 
-/**
- * Components
- */
+/// When declaring themed variables, ensure the keys are named themes followed by the value.
+/// If you want a variable to be non-themed, don't use maps at all.
 
-// encounter blocks
-$encounter-background: $tertiary;
-$encounter-text: $text-dark;
+/// Variables to theme tables.
+$table-header-bg-color: (
+    "light": var(--color-pf-tertiary-light),
+    "dark": #0066ff2a,
+);
 
-// images
-$shape-margin: 0.5em;
+/// Variables to theme images in journals
+$image-margin: 1em;
 
-// narrate blocks
-$narrate-background: $tertiary;
-$narrate-background-hover: color.adjust($tertiary, $lightness: -20%);
-$narrate-text: $text-dark;
-$narrate-text-hover: $text-dark;
+/// Variables to theme roll, check and action links in journals
+$roll-text-colour: (
+    "light": var(--color-dark-4),
+    // "dark": var(--color-dark-4)
+);
+$roll-background: (
+    "light": #ddd,
+    "dark": var(--color-cool-5-90)
+);
 
-// roll blocks
-$roll-background: $primary;
-$roll-background-secret: $secondary;
-$roll-text: $text-light;
-$roll-text-secret: $text-light;
+$roll-background-secret: (
+    "light": #f5eaf5,
+    "dark": #472647,
+);
 
-// aside blocks
-$aside-background: transparent;
-$aside-text: $secondary;
-$aside-border-color: $secondary;
+/// Variables to theme banners
+$banner-max-height: 500px;
+$banner-font: 'Open Sans', var(--font-primary);
 
-// tables
-$table-header-background: $primary;
-$table-header-text: $text-dark;
-$table-header-background-roll: $tertiary;
-$table-header-text-roll: $text-dark;
-
-// traits (defaults to Paizo's colour scheme)
-$trait-rarity-uncommon: var(--color-rarity-uncommon);
-$trait-rarity-rare: var(--color-rarity-rare);
-$trait-rarity-unique: var(--color-rarity-unique);
-$trait-aligment: #5a829f;
+/// Variables to theme traits in journals
+$trait-default: var(--primary);
+$trait-uncommon: var(--color-rarity-uncommon);
+$trait-rare: var(--color-rarity-rare);
+$trait-unique: var(--color-rarity-unique);
+$trait-alignment: #5a829f;
 $trait-size: var(--color-bg-size);
 
-// Journal window
-$journal-sidebar-background: $primary;
-$journal-content-background: url(/ui/parchment.jpg) repeat;
+/// Variables to theme narrate blocks in journals
+$narrate-text: var(--color-text-emphatic);
+$narrate-background: (
+    "light": var(--tertiary),
+    "dark": var(--color-pf-tertiary-darker)
+);
+$narrate-text-hover: var(--color-text-emphatic);
+$narrate-background-hover: (
+    "light": var(--color-pf-tertiary-light),
+    "dark": var(--color-pf-tertiary-darkest)
+);
 
-/**
- * External components
- */
+/// Variables to theme aside blocks in journals
+$aside-background: transparent;
+$aside-text-color: var(--color-text-emphatic);
 
-// Polyglot
-$polyglot-background: var(--blind-roll);
-$polyglot-border: 1px solid #720073;
+/// Variables to theme adventure importers
+$importer-background: (
+    "light": url("/ui/parchment.jpg") repeat,
+    "dark": var(--color-cool-5-90)
+);
 
-/**
- * Mixins & functions
- */
+/// Variables to theme encounter blocks
+$encounter-text-colour: var(--color-text-emphatic);
+$encounter-background: var(--primary);
 
-@function asset($url) {
-    @return url('/modules/#{$adventure-name}/assets#{$url}');
-}
+/// Variables to theme journal windows
+$journal-margin: 2em;
+$journal-sidebar-background: inherit;
+$journal-content-background: (
+    "light": url("../ui/parchment.jpg") repeat,
+    "dark": var(--color-cool-5-90)
+);
 
-// mixin to wrap all custom styles with a selector for this module's journals only.
-// change .adventure-template to the ID your module uses, don't forget to update it in constants.ts too.
-@mixin journal-page {
-    .sheet.journal-entry.#{$adventure-name} {
-        @content;
-    }
-}
-
-// helper mixin for when we want to style h1-h6
-@mixin headings {
-    h1, h2, h3, h4, h5, h6 {
-        @content;
-    }
-}
-
-/// usage: @include border-image('/assets/test.jpg', ("top": 1, "right": 2, "bottom": 3, "left": 4), 10px);
-@mixin border-image($image, $border-slice, $width) {
-    $top: map.get($border-slice, "top");
-    $right: map.get($border-slice, "right");
-    $bottom: map.get($border-slice, "bottom");
-    $left: map.get($border-slice, "left");
-
-    border-width: $width;
-    border-style: solid;
-    border-image-width: $width;
-    border-image-repeat: repeat repeat; 
-    border-image-outset: 0px 0px 0px 0px;
-    border-image-slice: $top $right $bottom $left fill;
-    border-image-source: asset($image);
-
-    &.full-width {
-        width: calc(100% - $width);
-    }
-}
+/// Variables to theme polyglot integrations
+$polyglot-background: (
+    "light": #{255, 180, 0},
+    "dark": #{114, 0, 115}
+);
+$polyglot-opacity: (
+    "light": 0.25,
+    "dark": 0.5
+);
+$polyglot-border: 1px solid rgba(var(--polyglot-journal-color), var(--polyglot-journal-opacity));

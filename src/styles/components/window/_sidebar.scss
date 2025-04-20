@@ -1,0 +1,8 @@
+@use '../../utils';
+@use '../../theme';
+
+@include utils.journal-page('light', 'dark') using ($theme) {
+    .journal-sidebar {
+        text-align: inherit;
+    }
+}
