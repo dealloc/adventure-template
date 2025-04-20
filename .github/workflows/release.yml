@@ -112,6 +112,31 @@ jobs:
           URL: ${{ env.project_url }}
           MANIFEST: ${{ env.latest_manifest_url }}
           DOWNLOAD: ${{ env.release_module_url }}
+  
+      - name: Add Release Metadata to module.json
+        id: add_manifest_keys
+        shell: bash
+        run: |
+          version="${{ steps.get_version.outputs.version-without-v }}"
+          url="${{ env.project_url }}"
+          manifest="${{ env.latest_manifest_url }}"
+          download="${{ env.release_module_url }}"
+      
+          # read module.json, merge in all the keys, then echo back into module.json
+          echo "$(
+            jq --arg ver   "$version"     \
+                --arg u     "$url"         \
+                --arg m     "$manifest"    \
+                --arg d     "$download"    \
+            '. 
+              + {
+                  version:     $ver,
+                  url:         $u,
+                  manifest:    $m,
+                  download:    $d
+                }
+            ' module.json
+          )" > module.json
 
 
       # Create a "module.zip" archive containing all the module's required files.
@@ -128,10 +153,12 @@ jobs:
              ./module.zip                        \
             `# The files that will be included.` \
             module.json                          \
-            cotkk.css                            \
-            cotkk.js                             \
+            module.css                            \
+            module.js                             \
             assets/                              \
             packs/                               \
+            lang/                               \
+            templates/                          \
 
 
       # Update the GitHub release with the manifest and module archive files.
