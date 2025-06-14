@@ -3,12 +3,15 @@
 Writing adventures in Foundry for Pathfinder Second Edition is fun, but it's poorly (if at all) documented.
 This module helps you get started by providing the most common building blocks for writing adventures.
 
+> [!WARNING]
+> If you are not a technical person, I've provided a guide that (tries to) help you get started without knowing
+> much about coding, package managers and all dazzling vocabulary you'll find below!
+> Click [this link](./docs/non-technical.md) to read more.
+>
+> If that guide leaves you stranded still, feel free to [open an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-an-issue).
+
 > [!IMPORTANT]
 > See https://paizo.com/pathfinder to learn more about Pathfinder. Paizo Inc. does not guarantee compatibility, and does not endorse this product.
-
-If you use this template, I'd love to hear from you! It's always fun to see what people do with my work.
-
-I'd also appreciate being credited if relevant <3
 
 # What's inside
 - [automated publishing](#automated-publishing)
@@ -138,7 +141,7 @@ Pathfinder Second Edition's system module for Foundry has a built in way to call
 
 While [Github](https://github.com/foundryvtt/pf2e/wiki/Style-Guide) has the full list and details, here's some quick examples to save you a click:
 
-[inline roll links](https://github.com/foundryvtt/pf2e/wiki/Style-Guide#inline-roll-links): 
+[inline roll links](https://github.com/foundryvtt/pf2e/wiki/Style-Guide#inline-roll-links):
 `[[/roll d20]]` or `[[/roll 2d10+5]]`
 
 [checks](https://github.com/foundryvtt/pf2e/wiki/Style-Guide#inline-check-links):
@@ -173,7 +176,7 @@ Aside from the `thead` you don't need to make any further changes.
         </tr>
     </thead>
     <tbody>
-        
+
         <tr>
             <td>left</td>
             <td>right</td>
@@ -285,7 +288,7 @@ This template provides the `overrides.json` which by default contains the follow
 What this does is override the compendium called `pf2e.pathfinder-bestiary`
 (which in Foundry you'll find under `Compendium Packs` -> `Bestiaries` -> `Bestiary 1`) and
 then overrides the creature with ID `gDMPUL0UiOHrUUd3` and sets
-`actor` (the artwork on the sheet), `token` (the token art used when placing the creature) and 
+`actor` (the artwork on the sheet), `token` (the token art used when placing the creature) and
 `ring` which is the token ring.
 
 This allows you to provide artwork for monsters that don't have any built in or even provide your own!
@@ -300,3 +303,6 @@ Below is a non-exhaustive list of links that you should read when developing mod
 - [PF2e's Style Guide wiki](https://github.com/foundryvtt/pf2e/wiki/Style-Guide)
 - [PF2e's Creating a PF2e Content Module](https://github.com/foundryvtt/pf2e/wiki/Creating-a-PF2e-Content-Module)
 - https://paizo.com/licenses
+
+# Licensing
+Currently only non-commercial licenses are available, if you need a commercial license please contact me.
