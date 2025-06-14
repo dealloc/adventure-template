@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "Lokalise.i18n-ally"
+        "Lokalise.i18n-ally",
+		"editorconfig.editorconfig"
     ]
 }
