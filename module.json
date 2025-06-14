@@ -40,6 +40,13 @@
     }
   ],
   "flags": {
+    "compendiumArtMappings": {
+      "pf2e": {
+        "mapping": "modules/adventure-template/overrides.json",
+        "credit": "<em>Your crediting here.</em>",
+        "priority": 100
+      }
+    },
     "hotReload": {
       "extensions": [
         "css"

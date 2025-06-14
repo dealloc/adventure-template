@@ -25,6 +25,7 @@ I'd also appreciate being credited if relevant <3
 - [why put macros in scripts?](#why-put-macros-in-scripts)
 - [customizable journals](#customizing-journals)
 - [custom importer](#custom-importers)
+- [compendia overrides](#overriding-compendia)
 
 ## Tooling
 The following tools are expected for optimal usage of this template:
@@ -248,6 +249,46 @@ It expects the following files present:
 Publishing the spritesheet generates a `ring.json` file under `assets/spritesheets` and a corresponding `.webp` spritesheet.
 
 The code for registering your custom token ring (in case you'd want to modify it or register more) lives under [dynamic-token-ring.ts](./src/scripts/hooks/dynamic-token-ring.ts)
+
+## Overriding Compendia
+Foundry provides a way to override existing compendia items, adding your own artwork to creatures that don't have it or even overriding
+existing artwork entirely. Paizo's own modules (
+    [Pathfinder Tokens: Bestiaries](https://paizo.com/products/btq02eat?Pathfinder-Tokens-Bestiaries),
+    [Pathfinder Tokens: Monster Core](https://paizo.com/products/btq056kl?Pathfinder-Tokens-Monster-Core) and
+    [Pathfinder Tokens: NPC Core](https://paizo.com/products/btq0aryk?Pathfinder-Tokens-NPC-Core)) make use of this!
+
+This template provides the `overrides.json` which by default contains the following example:
+```json
+{
+    "pf2e.pathfinder-bestiary": {
+        "gDMPUL0UiOHrUUd3": {
+            "actor": "modules/adventure-template/assets/placeholder.svg",
+            "token": {
+                "randomImg": true,
+                "texture": {
+                    "src": "modules/adventure-template/assets/placeholder.svg",
+                    "scaleX": 1,
+                    "scaleY": 1
+                },
+                "ring": {
+                    "enabled": true,
+                    "subject": {
+                        "texture": "modules/adventure-template/assets/placeholder.svg",
+                        "scale": 1.5
+                    }
+                }
+            }
+        }
+    }
+}
+```
+What this does is override the compendium called `pf2e.pathfinder-bestiary`
+(which in Foundry you'll find under `Compendium Packs` -> `Bestiaries` -> `Bestiary 1`) and
+then overrides the creature with ID `gDMPUL0UiOHrUUd3` and sets
+`actor` (the artwork on the sheet), `token` (the token art used when placing the creature) and 
+`ring` which is the token ring.
+
+This allows you to provide artwork for monsters that don't have any built in or even provide your own!
 
 # Helpful links
 Below is a non-exhaustive list of links that you should read when developing modules/adventures
