@@ -1,9 +1,9 @@
-import { onInitializeDynamicTokenRingConfig } from "./hooks/dynamic-token-ring";
-import { onImportAdventure } from "./hooks/import-adventure";
-import { onInitialized } from "./hooks/init";
-import { onGetProseMirrorMenuDropDowns } from "./hooks/prose-mirror";
-import { onReady } from "./hooks/ready";
-import { onSequencerReady } from './hooks/sequencer';
+import {onInitializeDynamicTokenRingConfig} from "./hooks/dynamic-token-ring";
+import {onImportAdventure} from "./hooks/import-adventure";
+import {onInitialized} from "./hooks/init";
+import {onGetProseMirrorMenuDropDowns} from "./hooks/prose-mirror";
+import {onReady} from "./hooks/ready";
+import {onSequencerReady} from './hooks/sequencer';
 
 // Called when Foundry initializes
 Hooks.once('init', onInitialized);
@@ -19,5 +19,5 @@ Hooks.on('importAdventure', onImportAdventure);
 // Only hook the prosemirror extensions in debug mode.
 // This code gets removed in production
 if (process.env.NODE_ENV) {
-    Hooks.on("getProseMirrorMenuDropDowns", onGetProseMirrorMenuDropDowns);
+	Hooks.on("getProseMirrorMenuDropDowns", onGetProseMirrorMenuDropDowns);
 }

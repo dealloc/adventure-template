@@ -8,27 +8,27 @@
 /// or, if all values of the slice are the same:
 /// @include border-image('/assets/test.jpg', 1, 10px);
 @mixin border-image($image, $border-slice, $width) {
-    $top: $border-slice;
-    $right: $border-slice;
-    $bottom: $border-slice;
-    $left: $border-slice;
+	$top: $border-slice;
+	$right: $border-slice;
+	$bottom: $border-slice;
+	$left: $border-slice;
 
-    @if (meta.type-of($border-slice) == map) {
-        $top: map.get($border-slice, "top");
-        $right: map.get($border-slice, "right");
-        $bottom: map.get($border-slice, "bottom");
-        $left: map.get($border-slice, "left");
-    }
+	@if (meta.type-of($border-slice) == map) {
+		$top: map.get($border-slice, "top");
+		$right: map.get($border-slice, "right");
+		$bottom: map.get($border-slice, "bottom");
+		$left: map.get($border-slice, "left");
+	}
 
-    border-width: $width;
-    border-style: solid;
-    border-image-width: $width;
-    border-image-repeat: repeat repeat; 
-    border-image-outset: 0px 0px 0px 0px;
-    border-image-slice: $top $right $bottom $left fill;
-    border-image-source: asset.asset($image);
+	border-width: $width;
+	border-style: solid;
+	border-image-width: $width;
+	border-image-repeat: repeat repeat;
+	border-image-outset: 0px 0px 0px 0px;
+	border-image-slice: $top $right $bottom $left fill;
+	border-image-source: asset.asset($image);
 
-    &.full-width {
-        width: calc(100% - $width);
-    }
+	&.full-width {
+		width: calc(100% - $width);
+	}
 }

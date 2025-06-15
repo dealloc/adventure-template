@@ -8,5 +8,5 @@ import CONSTANTS from "../constants";
  * @returns A full path inside the module of this adventure.
  */
 export function asset(path: any): string {
-    return `modules/${CONSTANTS.id}${path}`;
+	return `modules/${CONSTANTS.id}${path}`;
 }

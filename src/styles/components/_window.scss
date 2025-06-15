@@ -4,8 +4,8 @@
 @use './window/content';
 @use './window/sidebar';
 
-@include utils.journal-page('light', 'dark') using ($theme) {
-    // .window-header {
-    //     color: theme.$text-light;
-    // }
+@include utils.journal-page('light', 'dark') using($theme) {
+	// .window-header {
+	//     color: theme.$text-light;
+	// }
 }

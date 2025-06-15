@@ -2,16 +2,16 @@
 @use '../theme';
 
 @include utils.journal-page {
-    text-align: justify;
+	text-align: justify;
 
-    .ar {
-        text-transform: uppercase;
+	.ar {
+		text-transform: uppercase;
 
-        &::after {
-            content: " AR";
-            font-size: 14px;
-            font-weight: bold;
-            font-family: 'Amiri';
-        }
-    }
+		&::after {
+			content: " AR";
+			font-size: 14px;
+			font-weight: bold;
+			font-family: 'Amiri';
+		}
+	}
 }

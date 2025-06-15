@@ -11,14 +11,14 @@
 @forward './functions/themed';
 
 @include journal-page.journal-page {
-    .right {
-        float: right;
-    }
+	.right {
+		float: right;
+	}
 
-    .full-width {
-        width: calc(100% + theme.$journal-margin * 2);
-        margin-left: - theme.$journal-margin;
-        margin-right: - theme.$journal-margin;
-        max-width: none;
-    }
+	.full-width {
+		width: calc(100% + theme.$journal-margin * 2);
+		margin-left: - theme.$journal-margin;
+		margin-right: - theme.$journal-margin;
+		max-width: none;
+	}
 }

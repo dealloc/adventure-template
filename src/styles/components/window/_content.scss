@@ -1,38 +1,38 @@
 @use '../../utils';
 @use '../../theme';
 
-@include utils.journal-page('light', 'dark') using ($theme) {
-    // in order to allow for full-width images, we remove margin from journals
-    .journal-entry-pages {
-        margin-left: 0;
-        margin-right: 0;
-        padding-right: 0;
+@include utils.journal-page('light', 'dark') using($theme) {
+	// in order to allow for full-width images, we remove margin from journals
+	.journal-entry-pages {
+		margin-left: 0;
+		margin-right: 0;
+		padding-right: 0;
 
-        // headers are shown larger than the headings in the page
-        .journal-page-header {
-            @include utils.headings {
-                font-size: 3em;
-                font-weight: 400;
-            }
-        }
+		// headers are shown larger than the headings in the page
+		.journal-page-header {
+			@include utils.headings {
+				font-size: 3em;
+				font-weight: 400;
+			}
+		}
 
-        // we then re-add the whitespace as padding (which CAN be overriden by it's children unlike margin)
-        .journal-entry-page {
-            padding-top: calc(theme.$journal-margin / 2);
-            padding-left: theme.$journal-margin;
-            padding-right: theme.$journal-margin;
-        }
-    }
+		// we then re-add the whitespace as padding (which CAN be overriden by it's children unlike margin)
+		.journal-entry-page {
+			padding-top: calc(theme.$journal-margin / 2);
+			padding-left: theme.$journal-margin;
+			padding-right: theme.$journal-margin;
+		}
+	}
 
-    .journal-entry-content {
-        @include utils.themed(
-            --background,
-            theme.$journal-content-background,
-            $theme
-        );
+	.journal-entry-content {
+		@include utils.themed(
+				--background,
+				theme.$journal-content-background,
+				$theme
+		);
 
-        .journal-header {
-            display: none;
-        }
-    }
+		.journal-header {
+			display: none;
+		}
+	}
 }

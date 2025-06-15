@@ -8,8 +8,8 @@ $adventure-name: "adventure-template";
 
 /// Variables to theme tables.
 $table-header-bg-color: (
-    "light": var(--color-pf-tertiary-light),
-    "dark": #0066ff2a,
+	"light": var(--color-pf-tertiary-light),
+	"dark": #0066ff2a,
 );
 
 /// Variables to theme images in journals
@@ -17,17 +17,17 @@ $image-margin: 1em;
 
 /// Variables to theme roll, check and action links in journals
 $roll-text-colour: (
-    "light": var(--color-dark-4),
-    // "dark": var(--color-dark-4)
+	"light": var(--color-dark-4),
+	// "dark": var(--color-dark-4)
 );
 $roll-background: (
-    "light": #ddd,
-    "dark": var(--color-cool-5-90)
+	"light": #ddd,
+	"dark": var(--color-cool-5-90)
 );
 
 $roll-background-secret: (
-    "light": #f5eaf5,
-    "dark": #472647,
+	"light": #f5eaf5,
+	"dark": #472647,
 );
 
 /// Variables to theme banners
@@ -45,13 +45,13 @@ $trait-size: var(--color-bg-size);
 /// Variables to theme narrate blocks in journals
 $narrate-text: var(--color-text-emphatic);
 $narrate-background: (
-    "light": var(--tertiary),
-    "dark": var(--color-pf-tertiary-darker)
+	"light": var(--tertiary),
+	"dark": var(--color-pf-tertiary-darker)
 );
 $narrate-text-hover: var(--color-text-emphatic);
 $narrate-background-hover: (
-    "light": var(--color-pf-tertiary-light),
-    "dark": var(--color-pf-tertiary-darkest)
+	"light": var(--color-pf-tertiary-light),
+	"dark": var(--color-pf-tertiary-darkest)
 );
 
 /// Variables to theme aside blocks in journals
@@ -60,8 +60,8 @@ $aside-text-color: var(--color-text-emphatic);
 
 /// Variables to theme adventure importers
 $importer-background: (
-    "light": url("/ui/parchment.jpg") repeat,
-    "dark": var(--color-cool-5-90)
+	"light": url("/ui/parchment.jpg") repeat,
+	"dark": var(--color-cool-5-90)
 );
 
 /// Variables to theme encounter blocks
@@ -72,17 +72,17 @@ $encounter-background: var(--primary);
 $journal-margin: 2em;
 $journal-sidebar-background: inherit;
 $journal-content-background: (
-    "light": url("../ui/parchment.jpg") repeat,
-    "dark": var(--color-cool-5-90)
+	"light": url("../ui/parchment.jpg") repeat,
+	"dark": var(--color-cool-5-90)
 );
 
 /// Variables to theme polyglot integrations
 $polyglot-background: (
-    "light": #{255, 180, 0},
-    "dark": #{114, 0, 115}
+	"light": #{255, 180, 0},
+	"dark": #{114, 0, 115}
 );
 $polyglot-opacity: (
-    "light": 0.25,
-    "dark": 0.5
+	"light": 0.25,
+	"dark": 0.5
 );
 $polyglot-border: 1px solid rgba(var(--polyglot-journal-color), var(--polyglot-journal-opacity));

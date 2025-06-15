@@ -4,6 +4,6 @@
  * @param actor the actor of the currently selected token
  * @param scope if parameters were passed to this macro, they are available on scope.
  */
-export default async function(token: Token | null, actor: Actor | null, scope: Record<any, any>): Promise<void> {
-    alert('This is your macro!');
+export default async function (token: Token | null, actor: Actor | null, scope: Record<any, any>): Promise<void> {
+	alert('This is your macro!');
 }

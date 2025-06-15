@@ -4,5 +4,5 @@
 /// Example usage:
 /// utils.asset('/images/...');
 @function asset($url) {
-    @return url('/modules/#{theme.$adventure-name}/assets#{$url}');
+	@return url('/modules/#{theme.$adventure-name}/assets#{$url}');
 }

@@ -3,11 +3,11 @@
 
 // overrides default <img /> styling
 @include utils.journal-page {
-    img {
-        border: none;
+	img {
+		border: none;
 
-        &.outside {
-            shape-margin: theme.$image-margin;
-        }
-    }
+		&.outside {
+			shape-margin: theme.$image-margin;
+		}
+	}
 }

@@ -6,19 +6,19 @@
 /// Or, if you want to differentiate for themes:
 /// @include theme.adventure-importer('light', 'dark') using ($theme) { ... }
 @mixin adventure-importer($themes...) {
-    @if (list.length($themes) == 0) {
-        .adventure-importer.#{theme.$adventure-name} {
-            @content;
-        }
-    } @else {
-        .adventure-importer.#{theme.$adventure-name} {
-            @content(null);
-        }
+	@if (list.length($themes) == 0) {
+		.adventure-importer.#{theme.$adventure-name} {
+			@content;
+		}
+	} @else {
+		.adventure-importer.#{theme.$adventure-name} {
+			@content(null);
+		}
 
-        @each $theme in $themes {
-            body.theme-#{$theme} .adventure-importer.#{theme.$adventure-name}:not(.themed), .adventure-importer.#{theme.$adventure-name}.theme-#{$theme} {
-                @content($theme);
-            }
-        }
-    }
+		@each $theme in $themes {
+			body.theme-#{$theme} .adventure-importer.#{theme.$adventure-name}:not(.themed), .adventure-importer.#{theme.$adventure-name}.theme-#{$theme} {
+				@content($theme);
+			}
+		}
+	}
 }

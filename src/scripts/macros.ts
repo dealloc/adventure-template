@@ -5,12 +5,12 @@ import updateWorldDetails from "./macros/update-world-details";
 import getModule from "./utilities/get-module";
 
 export function initializeMacros(): void {
-    const module = getModule();
+	const module = getModule();
 
-    (module as any).macros = {
-        setWeather,
-        updateLanding,
-        updateWorldDetails,
-        blankMacro,
-    };
+	(module as any).macros = {
+		setWeather,
+		updateLanding,
+		updateWorldDetails,
+		blankMacro,
+	};
 }

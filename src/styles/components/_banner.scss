@@ -2,21 +2,21 @@
 @use '../theme';
 
 @include utils.journal-page() {
-    .banner-image {
-        object-fit: cover;
-        max-height: theme.$banner-max-height;
-    }
+	.banner-image {
+		object-fit: cover;
+		max-height: theme.$banner-max-height;
+	}
 
-    @include utils.headings {
-        &.banner-title {
-            // 4px is the gap between items in the journal
-            margin-top: calc(0px - var(--space-s));
-            font-weight: bold;
-            text-align: center;
-            text-transform: uppercase;
-            font-family: theme.$banner-font;
-    
-            @include utils.border-image("/layout/border.png", 272, 20px);
-        }
-    }
+	@include utils.headings {
+		&.banner-title {
+			// 4px is the gap between items in the journal
+			margin-top: calc(0px - var(--space-s));
+			font-weight: bold;
+			text-align: center;
+			text-transform: uppercase;
+			font-family: theme.$banner-font;
+
+			@include utils.border-image("/layout/border.png", 272, 20px);
+		}
+	}
 }

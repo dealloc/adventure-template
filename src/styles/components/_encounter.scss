@@ -2,59 +2,59 @@
 @use '../theme';
 
 $encounter-image-max-width: 100px;
-@include utils.journal-page('light', 'dark') using ($theme) {
-    .encounter {
-        @include utils.themed(
-            color,
-            theme.$encounter-text-colour,
-            $theme
-        );
-        @include utils.themed(
-            background,
-            theme.$encounter-background,
-            $theme
-        );
+@include utils.journal-page('light', 'dark') using($theme) {
+	.encounter {
+		@include utils.themed(
+				color,
+				theme.$encounter-text-colour,
+				$theme
+		);
+		@include utils.themed(
+				background,
+				theme.$encounter-background,
+				$theme
+		);
 
-        @if ($theme == null) {
-            padding: 1em;
-            display: flex;
-            flex-direction: column;
-            margin-left: - theme.$journal-margin;
-            margin-right: - theme.$journal-margin;
+		@if ($theme == null) {
+			padding: 1em;
+			display: flex;
+			flex-direction: column;
+			margin-left: - theme.$journal-margin;
+			margin-right: - theme.$journal-margin;
 
-            .header {
-                display: grid;
-                align-items: center;
-                grid-template-areas: "image title" "image link";
-                grid-template-columns: $encounter-image-max-width auto;
-                grid-template-rows: 3em 1fr;
-                margin-right: 2em;
+			.header {
+				display: grid;
+				align-items: center;
+				grid-template-areas: "image title" "image link";
+				grid-template-columns: $encounter-image-max-width auto;
+				grid-template-rows: 3em 1fr;
+				margin-right: 2em;
 
-                img {
-                    grid-area: image;
-                    max-width: $encounter-image-max-width;
-                    border: none;
-                }
+				img {
+					grid-area: image;
+					max-width: $encounter-image-max-width;
+					border: none;
+				}
 
-                @include utils.headings {
-                    display: flex;
-                    grid-area: title;
-                    justify-content: space-between;
-                    font-weight: bold;
-                    border-bottom-width: 2px;
-                    margin: 0;
-                    margin-top: 1rem;
-                    text-transform: uppercase;
-                }
+				@include utils.headings {
+					display: flex;
+					grid-area: title;
+					justify-content: space-between;
+					font-weight: bold;
+					border-bottom-width: 2px;
+					margin: 0;
+					margin-top: 1rem;
+					text-transform: uppercase;
+				}
 
-                p {
-                    grid-area: link;
-                }
-            }
+				p {
+					grid-area: link;
+				}
+			}
 
-            & > p {
-                margin-left: 2em;
-            }
-        }
-    }
+			& > p {
+				margin-left: 2em;
+			}
+		}
+	}
 }
