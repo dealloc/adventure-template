@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "build": "concurrently \"npm run style:build\" \"npm run script:build\"",
+    "watch": "concurrently \"npm run style:watch\" \"npm run script:watch\"",
+    "style:watch": "sass -w src/styles/style.scss module.css",
+    "style:build": "sass --no-source-map --style=compressed src/styles/style.scss module.css",
+    "script:watch": "esbuild src/scripts/index.ts --define:process.env.NODE_ENV=true --watch --bundle --outfile=module.js",
+    "script:build": "esbuild src/scripts/index.ts --define:process.env.NODE_ENV=false --bundle --minify --outfile=module.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "esbuild": "^0.25.1",
+    "fvtt-types": "github:League-of-Foundry-Developers/foundry-vtt-types#main",
+    "sass": "^1.85.1"
+  }
+}
