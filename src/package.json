@@ -8,7 +8,7 @@
     "script:build": "esbuild scripts/index.ts --define:process.env.NODE_ENV=false --bundle --minify --outfile=../module.js"
   },
   "devDependencies": {
-    "@league-of-foundry-developers/foundry-vtt-types": "^12.331.3-beta",
+    "@league-of-foundry-developers/foundry-vtt-types": "^12.331.5",
     "concurrently": "^9.1.2",
     "esbuild": "^0.25.1",
     "sass": "^1.85.1"
