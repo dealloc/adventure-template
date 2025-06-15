@@ -88,13 +88,9 @@ for building scripts and styles. Open a terminal (`Terminal -> New Terminal` at 
 
 Then type in the following (type each block separately and press enter):
 ```bash
-cd src
-```
-```bash
 npm ci
 ```
-The first command takes the terminal into the `src` folder, the second installs everything the template
-needs to compile scripts, macros and styles. If you
+This command installs everything the template needs to compile scripts, macros and styles. If you
 see an error that `npm` is not recognized, you need
 to verify you installed `nodejs` correctly (see [Prerequisites](#prerequisites)).
 
@@ -105,19 +101,6 @@ npm run build
 ```
 As you may have guessed, this will "build" the project
 which involves compiling all scripts and styles. You should see a newly created `module.js` and `module.css` file created in the template, that's normal! You can ignore these files, as they are re-generated every time we run the build.
-
-If you get an error similar to this:
-```
-npm error code ENOENT
-npm error syscall open
-npm error path ...\package.json
-npm error errno -4058
-npm error enoent Could not read package.json: Error: ENOENT: no such file or directory, open '...\package.json'
-npm error enoent This is related to npm not being able to find a file.
-npm error enoent
-npm error A complete log of this run can be found in: ...
-```
-Your terminal is in the wrong folder, try running `cd src` again and re-run the build command above.
 
 Now, every time we run `npm run build` it builds all our scripts and styles, so we can use them
 in Foundry. But having to constantly switch back and forth and running that command is tedious,
