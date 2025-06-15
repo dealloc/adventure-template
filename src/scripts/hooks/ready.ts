@@ -1,5 +1,6 @@
 import CONSTANTS from "../constants";
 import {getSetting} from "../settings";
+import showImport from "../settings/show-import";
 
 export async function onReady() {
 	if (CONSTANTS.adventure === null) {
@@ -7,17 +8,17 @@ export async function onReady() {
 		return;
 	}
 
-	const pack = game.packs.get(`${CONSTANTS.id}.${CONSTANTS.adventure}`);
+	const pack = game.packs!.get(`${CONSTANTS.id}.${CONSTANTS.adventure}`);
 
-	if (getSetting<boolean | undefined>('showImport') !== false) {
+	if (getSetting<boolean | undefined>(showImport) !== false) {
 		if (pack === undefined) {
-			ui.notifications.warn(`Could not render adventures from ${CONSTANTS.id}.${CONSTANTS.adventure}`);
+			ui.notifications!.warn(`Could not render adventures from ${CONSTANTS.id}.${CONSTANTS.adventure}`);
 
 			return;
 		}
 
 		for (const adventure of await pack.getDocuments()) {
-			adventure.sheet.render(true);
+			adventure.sheet!.render(true);
 		}
 	}
 }
