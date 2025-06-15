@@ -305,4 +305,4 @@ Below is a non-exhaustive list of links that you should read when developing mod
 - https://paizo.com/licenses
 
 # Licensing
-Currently only non-commercial licenses are available, if you need a commercial license please contact me.
+See `LICENSE.md` for more details

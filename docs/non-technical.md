@@ -163,4 +163,4 @@ easily (such as the players guide).
 
 If you are planning to use this template to make a commercial product (aka you have financial gain from the adventures and/or content created using this template and/or code) you must use a commercial license.
 
-You can see more information in the [README](../README.md#licensing) for details.
+You can see more information in the [README](../README.md#licensing) and [LICENSE.md](../LICENSE.md) for details.
