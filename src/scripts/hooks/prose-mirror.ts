@@ -84,9 +84,9 @@ export function onGetProseMirrorMenuDropDowns(menu, dropdowns) {
 				class: 'pf2e-as-banner',
 				title: 'Image banner with title',
 				cmd(state, dispatch, view) {
-					new FilePicker({
+					new foundry.applications.apps.FilePicker({
 						type: 'image',
-						callback: async (path) => {
+						callback: async (path: string) => {
 							const template = await renderTemplate(asset('/templates/editor/banner.hbs'), {path});
 							_insertHtml(state, dispatch, template);
 						},
