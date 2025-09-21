@@ -23,9 +23,7 @@
       "flags": {}
     }
   ],
-  "scripts": [
-    "module.js"
-  ],
+  "esmodules": ["module.mjs"],
   "styles": [
     {
       "src": "module.css"
