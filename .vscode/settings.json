@@ -6,8 +6,8 @@
 	},
 	"json.schemas": [
 		{
-			"fileMatch": ["overrides.json"],
-			"url": "./.schemas/overrides-schema.json"
+			"fileMatch": ["public/overrides.json"],
+			"url": ".vscode/.schemas/overrides-schema.json"
 		}
 	]
 }
