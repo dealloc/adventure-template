@@ -77,10 +77,8 @@ jobs:
                   cache-dependency-path: src/package-lock.json
 
             - run: npm ci
-              working-directory: ./src
 
             - run: npm run build
-              working-directory: ./src
 
             # Extract version embedded in the tag.
             # This step expects the tag to be one of the following formats:
@@ -103,7 +101,7 @@ jobs:
               id: sub_manifest_link_version
               uses: cschleiden/replace-tokens@v1
               with:
-                  files: "module.json"
+                  files: "dist/module.json"
               env:
                   VERSION: ${{steps.get_version.outputs.version-without-v}}
                   URL: ${{ env.project_url }}
@@ -119,13 +117,13 @@ jobs:
                   manifest="${{ env.latest_manifest_url }}"
                   download="${{ env.release_module_url }}"
 
-                  # read module.json, merge in all the keys, then echo back into module.json
+                  # read dist/module.json, merge in all the keys, then echo back into dist/module.json
                   echo "$(
                     jq --arg ver   "$version"     \
                        --arg u     "$url"         \
                        --arg m     "$manifest"    \
                        --arg d     "$download"    \
-                    '. 
+                    '.
                       + {
                           version:  $ver,
                           url:      $u,
@@ -133,29 +131,16 @@ jobs:
                           download: $d
                         }
                       | del(.flags.hotReload)
-                    ' module.json
-                  )" > module.json
+                    ' dist/module.json
+                  )" > dist/module.json
 
             # Create a "module.zip" archive containing all the module's required files.
-            # If you have other directories or files that will need to be added to
-            # your packaged module, add them here.
+            # Archive the entire dist/ directory which contains all build outputs.
             - name: Create Module Archive
+              working-directory: dist/
               run: |
-                  # Note that `zip` will only emit warnings when a file or directory
-                  # doesn't exist, it will not fail.
-                  zip                                    \
-                    `# Options`                          \
-                    --recurse-paths                      \
-                    `# The name of the output file`      \
-                     ./module.zip                        \
-                    `# The files that will be included.` \
-                    module.json                          \
-                    module.css                            \
-                    module.js                             \
-                    assets/                              \
-                    packs/                               \
-                    lang/                               \
-                    templates/                          \
+                  # Create zip archive from dist/ directory contents
+                  zip -r ../module.zip .
 
             # Update the GitHub release with the manifest and module archive files.
             - name: Update Release With Files
@@ -167,6 +152,6 @@ jobs:
                   draft: ${{ github.event.release.unpublished }}
                   prerelease: ${{ github.event.release.prerelease }}
                   token: ${{ secrets.GITHUB_TOKEN }}
-                  artifacts: "./module.json, ./module.zip"
+                  artifacts: "./dist/module.json, ./module.zip"
                   tag: ${{ github.event.release.tag_name }}
                   body: ${{ github.event.release.body }}
