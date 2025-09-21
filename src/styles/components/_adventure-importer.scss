@@ -1,0 +1,7 @@
+@use "../functions";
+@use "../theme";
+
+// Styles the adventure import application.
+@include functions.adventure-importer("light", "dark") using($theme) {
+	@include functions.themed(--background, theme.$importer-background, $theme);
+}

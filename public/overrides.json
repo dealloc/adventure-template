@@ -1,0 +1,22 @@
+{
+	"pf2e.pathfinder-bestiary": {
+		"gDMPUL0UiOHrUUd3": {
+			"actor": "modules/adventure-template/assets/placeholder.svg",
+			"token": {
+				"randomImg": true,
+				"texture": {
+					"src": "modules/adventure-template/assets/placeholder.svg",
+					"scaleX": 1,
+					"scaleY": 1
+				},
+				"ring": {
+					"enabled": true,
+					"subject": {
+						"texture": "modules/adventure-template/assets/placeholder.svg",
+						"scale": 1.5
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,5 +1,5 @@
-@use 'sass:map';
-@use 'sass:meta';
+@use "sass:map";
+@use "sass:meta";
 
 /// Automatically fetches the themed variable.
 /// Example usage:
@@ -9,7 +9,7 @@
 /// utils.themed(color, hotpink, $theme);
 @mixin themed($property, $map, $theme) {
 	@if (meta.type-of($map) != map) {
-		#{$property}: $map
+		#{$property}: $map;
 	} @else if (map.has-key($map, $theme)) {
 		#{$property}: map.get($map, $theme);
 	} @else if (map.has-key($map, null)) {

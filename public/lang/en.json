@@ -1,0 +1,10 @@
+{
+	"ADVENTURETEMPLATE": {
+		"settings": {
+			"showImport": {
+				"name": "Show import dialog",
+				"hint": "Shows the adventure import dialog on startup, set to false to disable."
+			}
+		}
+	}
+}

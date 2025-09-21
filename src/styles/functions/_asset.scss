@@ -1,8 +1,0 @@
-@use '../theme';
-
-/// Generates an url statement relative to the assets folder.
-/// Example usage:
-/// utils.asset('/images/...');
-@function asset($url) {
-	@return url('/modules/#{theme.$adventure-name}/assets#{$url}');
-}

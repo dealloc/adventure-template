@@ -1,26 +1,23 @@
-@use '../utils';
-@use '../theme';
+@use "../functions";
+@use "../theme";
 
+// This styling attempts to mimic the appearance of encounter blocks in the official Paizo adventure journals.
 $encounter-image-max-width: 100px;
-@include utils.journal-page('light', 'dark') using($theme) {
+@include functions.journal-page("light", "dark") using($theme) {
 	.encounter {
-		@include utils.themed(
-				color,
-				theme.$encounter-text-colour,
-				$theme
-		);
-		@include utils.themed(
-				background,
-				theme.$encounter-background,
-				$theme
+		@include functions.themed(color, theme.$encounter-text-colour, $theme);
+		@include functions.themed(
+			background,
+			theme.$encounter-background,
+			$theme
 		);
 
 		@if ($theme == null) {
 			padding: 1em;
 			display: flex;
 			flex-direction: column;
-			margin-left: - theme.$journal-margin;
-			margin-right: - theme.$journal-margin;
+			margin-left: -(theme.$journal-margin);
+			margin-right: -(theme.$journal-margin);
 
 			.header {
 				display: grid;
@@ -36,14 +33,13 @@ $encounter-image-max-width: 100px;
 					border: none;
 				}
 
-				@include utils.headings {
+				@include functions.headings {
 					display: flex;
 					grid-area: title;
 					justify-content: space-between;
 					font-weight: bold;
 					border-bottom-width: 2px;
-					margin: 0;
-					margin-top: 1rem;
+					margin: 1rem 0 0;
 					text-transform: uppercase;
 				}
 

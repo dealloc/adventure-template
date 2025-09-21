@@ -1,13 +1,16 @@
-@use '../utils';
-@use '../theme';
+@use "../functions";
+@use "../theme";
 
-@include utils.journal-page() {
+// Provides styling for large banner images, as often used in official Paizo adventure journals.
+@include functions.journal-page() {
+	// Makes the image cover the entire journal.
 	.banner-image {
 		object-fit: cover;
 		max-height: theme.$banner-max-height;
 	}
 
-	@include utils.headings {
+	// Makes the title of the banner appear centered.
+	@include functions.headings {
 		&.banner-title {
 			// 4px is the gap between items in the journal
 			margin-top: calc(0px - var(--space-s));
@@ -16,7 +19,7 @@
 			text-transform: uppercase;
 			font-family: theme.$banner-font;
 
-			@include utils.border-image("/layout/border.png", 272, 20px);
+			@include functions.border-image("/layout/border.png", 272, 20px);
 		}
 	}
 }

@@ -1,8 +1,9 @@
-@use '../utils';
-@use '../theme';
+@use "../functions";
+@use "../theme";
 
-
-@include utils.journal-page('light', 'dark') using($theme) {
+// Styles "narration blocks" that are used to provide additional context to the scene.
+// The dialog bubble (💬) will have a listener attached to send the narration to the chat.
+@include functions.journal-page("light", "dark") using($theme) {
 	.narrate {
 		@if ($theme == null) {
 			position: relative;
@@ -12,8 +13,12 @@
 			border-radius: 10px;
 		}
 
-		@include utils.themed(color, theme.$narrate-text, $theme);
-		@include utils.themed(background, theme.$narrate-background, $theme);
+		@include functions.themed(color, theme.$narrate-text, $theme);
+		@include functions.themed(
+			background,
+			theme.$narrate-background,
+			$theme
+		);
 
 		&::after {
 			@if ($theme == null) {
@@ -32,16 +37,28 @@
 				transition: background-color 500ms ease-in-out;
 			}
 
-			@include utils.themed(background-color, theme.$narrate-background, $theme);
+			@include functions.themed(
+				background-color,
+				theme.$narrate-background,
+				$theme
+			);
 		}
 
 		&:hover {
 			cursor: pointer;
-			@include utils.themed(color, theme.$narrate-text-hover, $theme);
-			@include utils.themed(background, theme.$narrate-background-hover, $theme);
+			@include functions.themed(color, theme.$narrate-text-hover, $theme);
+			@include functions.themed(
+				background,
+				theme.$narrate-background-hover,
+				$theme
+			);
 
 			&::after {
-				@include utils.themed(background, theme.$narrate-background-hover, $theme);
+				@include functions.themed(
+					background,
+					theme.$narrate-background-hover,
+					$theme
+				);
 			}
 		}
 	}

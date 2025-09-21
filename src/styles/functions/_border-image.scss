@@ -1,6 +1,5 @@
-@use 'sass:map';
-@use 'sass:meta';
-@use './asset';
+@use "sass:map";
+@use "sass:meta";
 
 /// Generates a border-image CSS setup
 /// Example usage:
@@ -22,11 +21,10 @@
 
 	border-width: $width;
 	border-style: solid;
-	border-image-width: $width;
 	border-image-repeat: repeat repeat;
 	border-image-outset: 0px 0px 0px 0px;
 	border-image-slice: $top $right $bottom $left fill;
-	border-image-source: asset.asset($image);
+	border-image-source: $image;
 
 	&.full-width {
 		width: calc(100% - $width);

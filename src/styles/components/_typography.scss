@@ -1,9 +1,12 @@
-@use '../utils';
-@use '../theme';
+@use "../functions";
+@use "../theme";
 
-@include utils.journal-page {
+// Various typography styles for journals.
+@include functions.journal-page {
 	text-align: justify;
 
+	// used for representing `Absalom Reckoning` years
+	// used like `<span class="ar">2000</span>` (will render as 2000 AR)
 	.ar {
 		text-transform: uppercase;
 
@@ -11,7 +14,7 @@
 			content: " AR";
 			font-size: 14px;
 			font-weight: bold;
-			font-family: 'Amiri';
+			font-family: "Amiri", ui-serif;
 		}
 	}
 }

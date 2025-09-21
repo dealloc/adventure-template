@@ -1,0 +1,26 @@
+@use "../theme";
+@use "sass:list";
+
+/// Example usage:
+/// @include theme.adventure-importer { ... }
+/// Or, if you want to differentiate for themes:
+/// @include theme.adventure-importer('light', 'dark') using ($theme) { ... }
+@mixin adventure-importer($themes...) {
+	@if (list.length($themes) == 0) {
+		.adventure-importer.#{theme.$namespace} {
+			@content;
+		}
+	} @else {
+		.adventure-importer.#{theme.$namespace} {
+			@content (null);
+		}
+
+		@each $theme in $themes {
+			body.theme-#{$theme}
+				.adventure-importer.#{theme.$namespace}:not(.themed),
+			.adventure-importer.#{theme.$namespace}.theme-#{$theme} {
+				@content ($theme);
+			}
+		}
+	}
+}

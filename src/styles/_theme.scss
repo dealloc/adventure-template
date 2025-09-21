@@ -1,0 +1,110 @@
+/**
+ * Theme Styles
+ *
+ * Note that this file *MUST NOT* contain CSS rules as it will be imported many times.
+ * If it contains CSS rules they will be duplicated in every module that imports it.
+ *
+ * This SCSS file contains global theme variables, mixins, and style definitions
+ * that establish the core visual design system for the application.
+ * It includes color palettes, typography settings, spacing units, and other
+ * fundamental design tokens used throughout the application.
+ *
+ * You'll notice certain variables being declared as a map, this allows defining
+ * a light/dark theme variant without duplicating variable names.
+ *
+ * For more information on map/theme variables, see functions/_themed.scss
+ */
+
+/// When generating CSS scoped to this module, this variable contains the class name that is prepended.
+/// The `module-name()` function is defined in the Vite config and always resolves to the `name` in `package.json`.
+// noinspection CssInvalidFunction (silences IDE errors)
+$namespace: module-name();
+
+/// When declaring themed variables, ensure the keys are named themes followed by the value.
+/// If you want a variable to be non-themed, don't use maps at all.
+
+/// Variables to theme tables.
+$table-header-bg-color: (
+	"light": var(--color-pf-tertiary-light),
+	"dark": #0066ff2a,
+);
+
+/// Variables to theme images in journals
+$image-margin: 1em;
+
+/// Variables to theme roll, check and action links in journals
+$roll-text-colour: (
+	"light": var(--color-dark-4), // "dark": var(--color-dark-4)
+);
+$roll-background: (
+	"light": #ddd,
+	"dark": var(--color-cool-5-90),
+);
+
+$roll-background-secret: (
+	"light": #f5eaf5,
+	"dark": #472647,
+);
+
+/// Variables to theme banners
+$banner-max-height: 500px;
+$banner-font: "Open Sans", var(--font-primary);
+
+/// Variables to theme traits in journals
+$trait-default: var(--primary);
+$trait-uncommon: var(--color-rarity-uncommon);
+$trait-rare: var(--color-rarity-rare);
+$trait-unique: var(--color-rarity-unique);
+$trait-alignment: #5a829f;
+$trait-size: var(--color-bg-size);
+
+/// Variables to theme narrate blocks in journals
+$narrate-text: var(--color-text-emphatic);
+$narrate-background: (
+	"light": var(--tertiary),
+	"dark": var(--color-pf-tertiary-darker),
+);
+$narrate-text-hover: var(--color-text-emphatic);
+$narrate-background-hover: (
+	"light": var(--color-pf-tertiary-light),
+	"dark": var(--color-pf-tertiary-darkest),
+);
+
+/// Variables to theme aside blocks in journals
+$aside-background: transparent;
+$aside-text-color: var(--color-text-emphatic);
+
+/// Variables to theme adventure importers
+$importer-background: (
+	"light": var(--sidebar-bg),
+	"dark": var(--color-cool-5-90),
+);
+
+/// Variables to theme encounter blocks
+$encounter-text-colour: var(--color-text-emphatic);
+$encounter-background: var(--primary);
+
+/// Variables to theme journal windows
+$journal-margin: 2em;
+$journal-margin-half: calc($journal-margin / 2);
+$journal-sidebar-background: inherit;
+$journal-content-background: (
+	"light": var(--sidebar-bg),
+	"dark": var(--color-cool-5-90),
+);
+
+/// Variables to theme polyglot integrations
+$polyglot-background: (
+	"light": #{255,
+	180,
+	0},
+	"dark": #{114,
+	0,
+	115},
+);
+$polyglot-opacity: (
+	"light": 0.25,
+	"dark": 0.5,
+);
+$polyglot-border: 1px solid
+	rgba(var(--polyglot-journal-color), var(--polyglot-journal-opacity));
