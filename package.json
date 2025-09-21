@@ -1,5 +1,6 @@
 {
 	"name": "adventure-template",
+	"description": "A template for Foundry VTT adventures.",
 	"scripts": {
 		"start": "vite",
 		"build": "vite build",

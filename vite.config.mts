@@ -4,7 +4,7 @@ import { visualizer } from "rollup-plugin-visualizer";
 import { sveltePreprocess } from "svelte-preprocess";
 import checker from "vite-plugin-checker";
 import path from "path";
-import { name } from "./package.json";
+import { name, description } from "./package.json";
 import * as sass from "sass-embedded";
 
 const config: UserConfig = {
@@ -61,7 +61,11 @@ const config: UserConfig = {
 			},
 		},
 	},
-	define: {},
+	define: {
+		MODULE_ID: `"${name}"`,
+		MODULE_NAME: `"${name}"`,
+		MODULE_DESCRIPTION: `"${description}"`,
+	},
 };
 
 export default config;
