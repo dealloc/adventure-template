@@ -5,6 +5,7 @@ import { sveltePreprocess } from "svelte-preprocess";
 import checker from "vite-plugin-checker";
 import path from "path";
 import { name } from "./package.json";
+import * as sass from "sass-embedded";
 
 const config: UserConfig = {
 	root: "src/",
@@ -49,6 +50,17 @@ const config: UserConfig = {
 			template: "treemap",
 		}),
 	],
+	css: {
+		preprocessorOptions: {
+			scss: {
+				functions: {
+					"module-name()": () => {
+						return new sass.SassString(name, {});
+					},
+				},
+			},
+		},
+	},
 	define: {},
 };
 

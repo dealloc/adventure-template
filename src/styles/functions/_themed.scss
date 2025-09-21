@@ -1,0 +1,18 @@
+@use "sass:map";
+@use "sass:meta";
+
+/// Automatically fetches the themed variable.
+/// Example usage:
+/// $themed-variable: (null: "default", "light": "light variable", "dark": "dark variable");
+/// utils.themed(color, $themed-variable, $theme)
+/// You can also pass in a non-mapped variable, in which case it just outputs the value
+/// utils.themed(color, hotpink, $theme);
+@mixin themed($property, $map, $theme) {
+	@if (meta.type-of($map) != map) {
+		#{$property}: $map;
+	} @else if (map.has-key($map, $theme)) {
+		#{$property}: map.get($map, $theme);
+	} @else if (map.has-key($map, null)) {
+		#{$property}: map.get($map, null);
+	}
+}

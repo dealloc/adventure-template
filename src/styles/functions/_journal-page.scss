@@ -1,0 +1,28 @@
+@use "sass:list";
+@use "../theme";
+
+/// Defines styles that should be scoped to journal pages of this module.
+///
+/// Example usage:
+/// @include journal-page { ... }
+/// Or, if you want to differentiate for themes:
+/// @include journal-page('light', 'dark') using ($theme) { ... }
+@mixin journal-page($themes...) {
+	@if (list.length($themes) == 0) {
+		.sheet.journal-entry.#{theme.$namespace} {
+			@content;
+		}
+	} @else {
+		.sheet.journal-entry.#{theme.$namespace} {
+			@content (null);
+		}
+
+		@each $theme in $themes {
+			body.theme-#{$theme}
+				.sheet.journal-entry.#{theme.$namespace}:not(.themed),
+			.sheet.journal-entry.#{theme.$namespace}.theme-#{$theme} {
+				@content ($theme);
+			}
+		}
+	}
+}
