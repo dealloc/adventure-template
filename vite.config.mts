@@ -49,9 +49,7 @@ const config: UserConfig = {
 			template: "treemap",
 		}),
 	],
-	define: {
-		"process.env": process.env,
-	},
+	define: {},
 };
 
 export default config;
