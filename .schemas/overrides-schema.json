@@ -74,9 +74,7 @@
               "additionalProperties": false
             }
           },
-          "required": [
-            "actor"
-          ],
+          "required": ["actor"],
           "additionalProperties": false
         }
       },

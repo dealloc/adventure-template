@@ -1,17 +1,13 @@
 {
-    "i18n-ally.localesPaths": [
-        "en.json"
-    ],
-    "i18n-ally.keystyle": "nested",
-    "files.associations": {
-        "*.dungeondraft_map": "json"
-    },
-    "json.schemas": [
-        {
-            "fileMatch": [
-                "overrides.json"
-            ],
-            "url": "./.schemas/overrides-schema.json"
-        }
-    ]
+	"i18n-ally.localesPaths": ["en.json"],
+	"i18n-ally.keystyle": "nested",
+	"files.associations": {
+		"*.dungeondraft_map": "json"
+	},
+	"json.schemas": [
+		{
+			"fileMatch": ["overrides.json"],
+			"url": "./.schemas/overrides-schema.json"
+		}
+	]
 }
