@@ -1,0 +1,65 @@
+@use "../functions";
+@use "../theme";
+
+// Styles "narration blocks" that are used to provide additional context to the scene.
+// The dialog bubble (💬) will have a listener attached to send the narration to the chat.
+@include functions.journal-page("light", "dark") using($theme) {
+	.narrate {
+		@if ($theme == null) {
+			position: relative;
+			padding: 1em;
+			margin: 2em;
+			transition: background-color 500ms ease-in-out;
+			border-radius: 10px;
+		}
+
+		@include functions.themed(color, theme.$narrate-text, $theme);
+		@include functions.themed(
+			background,
+			theme.$narrate-background,
+			$theme
+		);
+
+		&::after {
+			@if ($theme == null) {
+				content: "💬";
+				display: block;
+				position: absolute;
+				border-radius: 10px;
+				font-size: 1rem;
+				height: 1.2rem;
+				line-height: 1.2rem;
+				width: 1.2rem;
+				top: -0.2rem;
+				right: -0.2rem;
+				text-align: center;
+				padding: 2px;
+				transition: background-color 500ms ease-in-out;
+			}
+
+			@include functions.themed(
+				background-color,
+				theme.$narrate-background,
+				$theme
+			);
+		}
+
+		&:hover {
+			cursor: pointer;
+			@include functions.themed(color, theme.$narrate-text-hover, $theme);
+			@include functions.themed(
+				background,
+				theme.$narrate-background-hover,
+				$theme
+			);
+
+			&::after {
+				@include functions.themed(
+					background,
+					theme.$narrate-background-hover,
+					$theme
+				);
+			}
+		}
+	}
+}

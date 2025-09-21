@@ -1,0 +1,58 @@
+@use "../functions";
+@use "../theme";
+
+// Provides consistent styling for traits with helper classes for rarity and trait types.
+@include functions.journal-page("light", "dark") using($theme) {
+	.traits {
+		p {
+			// 2px is the border width of traits, this makes them space nicely
+			margin-left: 2px;
+
+			@include functions.themed(
+				background-color,
+				theme.$trait-default,
+				$theme
+			);
+		}
+
+		.uncommon {
+			@include functions.themed(
+				background-color,
+				theme.$trait-uncommon,
+				$theme
+			);
+		}
+
+		.rare {
+			@include functions.themed(
+				background-color,
+				theme.$trait-rare,
+				$theme
+			);
+		}
+
+		.unique {
+			@include functions.themed(
+				background-color,
+				theme.$trait-unique,
+				$theme
+			);
+		}
+
+		.alignment {
+			@include functions.themed(
+				background-color,
+				theme.$trait-alignment,
+				$theme
+			);
+		}
+
+		.size {
+			@include functions.themed(
+				background-color,
+				theme.$trait-size,
+				$theme
+			);
+		}
+	}
+}

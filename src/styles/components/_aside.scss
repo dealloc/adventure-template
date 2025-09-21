@@ -1,0 +1,19 @@
+@use "../functions";
+@use "../theme";
+
+// IDE complains about the `calc` if it's not a local variable.
+$journal-margin: theme.$journal-margin;
+
+// styles <aside> blocks that have been aligned to the side explicitly.
+@include functions.journal-page("light", "dark") using($theme) {
+	aside.right {
+		@if ($theme == null) {
+			width: calc(50% + $journal-margin);
+			margin-left: theme.$journal-margin;
+			padding-left: theme.$journal-margin;
+		}
+
+		@include functions.themed(color, theme.$aside-text-color, $theme);
+		@include functions.themed(background, theme.$aside-background, $theme);
+	}
+}

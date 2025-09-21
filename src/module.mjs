@@ -3,4 +3,4 @@
 // in dev, foundry loads index.js, this file, which loads module.ts
 
 window.global = window;
-import * as MODULE from "./module.ts";
+import "./module.ts";

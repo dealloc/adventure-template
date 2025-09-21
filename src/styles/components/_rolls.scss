@@ -1,0 +1,39 @@
+@use "../functions";
+@use "../theme";
+
+// Styles inline links, such as journals, actors, checks, rolls, damage etc.
+@include functions.journal-page("light", "dark") using($theme) {
+	.content-link,
+	.inline-check,
+	.inline-roll,
+	span[data-pf2-action] {
+		@include functions.themed(
+			--content-link-text-color,
+			theme.$roll-text-colour,
+			$theme
+		);
+
+		@include functions.themed(
+			--content-link-background,
+			theme.$roll-background,
+			$theme
+		);
+		@include functions.themed(
+			--inline-link-bg,
+			theme.$roll-background,
+			$theme
+		);
+		@include functions.themed(
+			--blind-roll,
+			theme.$roll-background-secret,
+			$theme
+		);
+
+		--visibility-gm-bg: transparent;
+
+		i,
+		&::before {
+			background: transparent;
+		}
+	}
+}

@@ -1,0 +1,39 @@
+@use "../functions";
+@use "../theme";
+
+// Overrides styling of the journal content.
+@include functions.journal-page("light", "dark") using($theme) {
+	// in order to allow for full-width images, we remove margin from journals
+	.journal-entry-pages {
+		margin-left: 0;
+		margin-right: 0;
+		padding-right: 0;
+
+		// headers are shown larger than the headings in the page
+		.journal-page-header {
+			@include functions.headings {
+				font-size: 3em;
+				font-weight: 400;
+			}
+		}
+
+		// we then re-add the whitespace as padding (which CAN be overridden by it's children unlike margin)
+		.journal-entry-page {
+			padding-top: theme.$journal-margin-half;
+			padding-left: theme.$journal-margin;
+			padding-right: theme.$journal-margin;
+		}
+	}
+
+	.journal-entry-content {
+		@include functions.themed(
+			--background,
+			theme.$journal-content-background,
+			$theme
+		);
+
+		.journal-header {
+			display: none;
+		}
+	}
+}

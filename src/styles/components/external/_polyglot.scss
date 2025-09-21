@@ -1,0 +1,25 @@
+@use "../../functions";
+@use "../../theme";
+
+// Styles polyglot entries in journals from the `polyglot` module.
+@include functions.journal-page("light", "dark") using($theme) {
+	.polyglot-journal {
+		padding: 0 var(--space-s);
+
+		// the `????` means the user can't read the text, so we only modify if it's a known language.
+		&:not([data-tooltip="????"]) {
+			border: theme.$polyglot-border;
+			@include functions.themed(
+				--polyglot-journal-color,
+				theme.$polyglot-background,
+				$theme
+			);
+
+			@include functions.themed(
+				--polyglot-journal-opacity,
+				theme.$polyglot-opacity,
+				$theme
+			);
+		}
+	}
+}

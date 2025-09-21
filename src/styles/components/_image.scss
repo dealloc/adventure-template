@@ -1,0 +1,14 @@
+@use "../functions";
+@use "../theme";
+
+// overrides default <img /> styling
+@include functions.journal-page {
+	img {
+		border: none;
+
+		// Automatically makes the margin follow the outline of the image.
+		&.outside {
+			shape-margin: theme.$image-margin;
+		}
+	}
+}

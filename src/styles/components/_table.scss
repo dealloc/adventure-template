@@ -1,0 +1,18 @@
+@use "../functions/journal-page";
+@use "../functions/themed";
+@use "../theme";
+
+// Styles tables in journal pages.
+@include journal-page.journal-page("light", "dark") using($theme) {
+	@include themed.themed(
+		--table-header-bg-color,
+		theme.$table-header-bg-color,
+		$theme
+	);
+
+	@include themed.themed(
+		--table-header-border-color,
+		theme.$table-header-bg-color,
+		$theme
+	);
+}
