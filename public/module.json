@@ -1,52 +1,57 @@
 {
-	"id": "adventure-template",
-	"title": "Adventure Template",
-	"version": "1.0.0",
-	"compatibility": {
-		"minimum": "13",
-		"verified": "13"
-	},
-	"relationships": {
-		"systems": [
-			{
-				"id": "pf2e",
-				"type": "system",
-				"compatibility": {}
-			}
-		]
-	},
-	"authors": [
-		{
-			"name": "Wannes",
-			"email": "info@dealloc.be",
-			"discord": "dealloc",
-			"flags": {}
-		}
-	],
-	"esmodules": ["module.mjs"],
-	"styles": [
-		{
-			"src": "module.css"
-		}
-	],
-	"languages": [
-		{
-			"lang": "en",
-			"name": "English",
-			"path": "lang/en.json",
-			"flags": {}
-		}
-	],
-	"flags": {
-		"compendiumArtMappings": {
-			"pf2e": {
-				"mapping": "modules/adventure-template/overrides.json",
-				"credit": "<em>Your crediting here.</em>",
-				"priority": 100
-			}
-		},
-		"hotReload": {
-			"extensions": ["css"]
-		}
-	}
+  "id": "adventure-template",
+  "title": "Adventure Template",
+  "description": "<p>You can add a description of your package here!</p>",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13.348"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "pf2e",
+        "type": "system",
+        "compatibility": {}
+      }
+    ]
+  },
+  "authors": [
+    {
+      "name": "Wannes",
+      "email": "info@dealloc.be",
+      "discord": "dealloc",
+      "flags": {}
+    }
+  ],
+  "esmodules": [
+    "module.mjs"
+  ],
+  "styles": [
+    {
+      "src": "module.css"
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json",
+      "flags": {}
+    }
+  ],
+  "flags": {
+    "compendiumArtMappings": {
+      "pf2e": {
+        "mapping": "modules/adventure-template/overrides.json",
+        "credit": "<em>Your crediting here.</em>",
+        "priority": 100
+      }
+    },
+    "hotReload": {
+      "extensions": [
+        "css"
+      ]
+    }
+  }
 }
