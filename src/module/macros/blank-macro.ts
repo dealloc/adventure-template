@@ -1,4 +1,4 @@
-/* eslint @typescript-eslint/no-unused-vars: "off" */
+import { info } from "../utilities/logging";
 
 /**
  * A blank macro to serve as boilerplate code for your own macros.
@@ -12,5 +12,6 @@ export default async function (
 	actor: Actor | null,
 	scope: Record<any, any>,
 ): Promise<void> {
+	info(token, actor, scope);
 	alert("This is your macro!");
 }

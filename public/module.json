@@ -40,6 +40,19 @@
       "flags": {}
     }
   ],
+  "packs": [
+    {
+      "name": "example-content",
+      "label": "Example Content",
+      "path": "packs/example-content",
+      "type": "Adventure",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "system": "pf2e"
+    }
+  ],
   "flags": {
     "compendiumArtMappings": {
       "pf2e": {
