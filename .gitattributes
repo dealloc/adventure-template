@@ -1,4 +1,4 @@
-packs/** binary
+public/packs/**/* binary
 *.png binary
 *.jpg binary
 *.webp binary
