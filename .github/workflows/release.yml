@@ -69,16 +69,14 @@ jobs:
             - name: Checkout Repository
               uses: actions/checkout@v3
 
-            - name: Use Node.js 22.14.0
-              uses: actions/setup-node@v4
+            - name: Setup Bun
+              uses: oven-sh/setup-bun@v2
               with:
-                  node-version: 22.14.0
-                  cache: "npm"
-                  cache-dependency-path: src/package-lock.json
+                bun-version: latest
 
-            - run: npm ci
+            - run: bun install
 
-            - run: npm run build
+            - run: bun run build
 
             # Extract version embedded in the tag.
             # This step expects the tag to be one of the following formats:
