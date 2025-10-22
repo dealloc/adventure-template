@@ -1,3 +1,7 @@
 {
-	"recommendations": ["Lokalise.i18n-ally", "editorconfig.editorconfig"]
+	"recommendations": [
+		"Lokalise.i18n-ally",
+		"editorconfig.editorconfig",
+		"github.vscode-github-actions"
+	]
 }
