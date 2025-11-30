@@ -27,26 +27,27 @@ right and points out mistakes and even help you fix them.
 You can download Code from [it's website](https://code.visualstudio.com/). We'll get to setting it up for you in a few steps, so for now
 install it and try opening to see if everything works.
 
-### NodeJS
+### Bun
 
 Foundry, this template (and a surprisingly large part of the internet)
-runs on a programming language called Javascript. `nodejs` is a program
-that can execute scripts in this language on your computer (it's
-actually what Foundry runs internally to make it work!).
-To build your adventure code, macros and styling we need these scripts,
-so we'll install NodeJS to do that for us.
+runs on a programming language called JavaScript. `Bun` is a modern,
+fast JavaScript runtime and package manager that can execute scripts
+and manage dependencies for your project.
 
-Head over to [their website](https://nodejs.org/en/download) and
-download the `prebuild Node.js` for your platform. Once installed, we
-can start installing the template itself!
+To build your adventure code, macros and styling we need Bun installed
+on your computer.
+
+Head over to [their website](https://bun.sh/) and follow the installation
+instructions for your platform (Windows, macOS, or Linux). Once installed,
+we can start installing the template itself!
 
 ### The template
 
-Most likely you'll be reading this over on Github (if not, head over [here](https://github.com/dealloc/adventure-template)).
+Most likely you'll be reading this over on GitHub (if not, head over [here](https://github.com/dealloc/adventure-template)).
 
 You have 2 options for getting started.
 
-- You can create a repository for this template by using the `Use this template` button in the top right ([this article](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) provides an in-depth guide), note that requires a Github Account and _some_ knowledge on how to use Git.
+- You can create a repository for this template by using the `Use this template` button in the top right ([this article](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) provides an in-depth guide), note that requires a GitHub Account and _some_ knowledge on how to use Git.
 - You can download the repository as a ZIP file on your computer by clicking on the green `< > Code` button and then the `Download ZIP` button at the bottom of the opened dropdown. Once you unpack this you have a local copy on your computer.
 
 Once you have a copy, either by cloning your repository or extracting the downloaded ZIP,
@@ -88,42 +89,49 @@ walks you through installing them.
 If you type `@recommended` in the search bar you should see
 the extensions I configured, click install on both.
 
+The recommended extensions for this template are:
+- **EditorConfig** - Helps maintain consistent coding styles
+- **i18n Ally** - Helps with internationalization if you add multiple language support
+- **GitHub Actions** - Provides syntax highlighting and validation for the CI/CD workflows
+
+These extensions are optional but make development easier.
+
 ### Installing dependencies
 
 With that out of the way, let's install the dependencies
 for building scripts and styles. Open a terminal (`Terminal -> New Terminal` at the top of the screen).
 
-Then type in the following (type each block separately and press enter):
+Then type in the following and press enter:
 
 ```bash
-npm ci
+bun install
 ```
 
 This command installs everything the template needs to compile scripts, macros and styles. If you
-see an error that `npm` is not recognized, you need
-to verify you installed `nodejs` correctly (see [Prerequisites](#prerequisites)).
+see an error that `bun` is not recognized, you need
+to verify you installed Bun correctly (see [Prerequisites](#prerequisites)).
 
 ### Building scripts
 
 Once installed, run the following command in the same terminal:
 
 ```bash
-npm run build
+bun run build
 ```
 
 As you may have guessed, this will "build" the project
-which involves compiling all scripts and styles. You should see a newly created `module.js` and `module.css` file created in the template, that's normal! You can ignore these files, as they are re-generated every time we run the build.
+which involves compiling all scripts and styles. You should see newly created files in a `dist` folder, that's normal! These files are re-generated every time we run the build.
 
-Now, every time we run `npm run build` it builds all our scripts and styles, so we can use them
+Now, every time we run `bun run build` it builds all our scripts and styles, so we can use them
 in Foundry. But having to constantly switch back and forth and running that command is tedious,
 fortunately we have an alternative:
 
 ```bash
-npm run watch
+bun start
 ```
 
-This does almost the same, but it will "watch" your files and folders for changes, and
-automatically run `npm run build` when you save a file, isn't that handy!
+This starts a development server that will "watch" your files and folders for changes, and
+automatically rebuild when you save a file, isn't that handy!
 
 ### Changing the name (and ID)
 
