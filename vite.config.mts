@@ -1,11 +1,11 @@
-import type { UserConfig } from "vite";
+import path from "node:path";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 import { visualizer } from "rollup-plugin-visualizer";
-import { sveltePreprocess } from "svelte-preprocess";
-import checker from "vite-plugin-checker";
-import path from "path";
-import { name, description } from "./package.json";
 import * as sass from "sass-embedded";
+import { sveltePreprocess } from "svelte-preprocess";
+import type { UserConfig } from "vite";
+import checker from "vite-plugin-checker";
+import { description, name } from "./package.json";
 
 const config: UserConfig = {
 	root: "src/",

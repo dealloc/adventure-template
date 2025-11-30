@@ -33,6 +33,7 @@ declare namespace foundry.applications.sheets {
 }
 
 declare namespace foundry.applications.sheets.journal {
+	// biome-ignore lint/complexity/noStaticOnlyClass: Expansion of FoundryVTT type
 	export class JournalEntrySheet {
 		static DEFAULT_OPTIONS: JournalSheetOptions;
 	}

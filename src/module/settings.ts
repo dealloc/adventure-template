@@ -1,5 +1,5 @@
-import { debug } from "./utilities/logging";
 import oneTimeSetup from "./settings/one-time-setup";
+import { debug } from "./utilities/logging";
 
 const settings: {
 	[key: string]: ClientSettings.SettingConfig & { key: string };
@@ -13,11 +13,7 @@ export function initializeSettings() {
 		const setting = settings[key];
 		debug("Registering setting", setting.key, setting);
 
-		(game as any).settings!.register(
-			MODULE_ID as any,
-			setting.key,
-			setting,
-		);
+		(game as any).settings?.register(MODULE_ID as any, setting.key, setting);
 	}
 }
 
@@ -39,5 +35,5 @@ export function getSetting<T>(key: { key: string }): T {
 export function setSetting<
 	T extends ClientSettings.SettingCreateData<any, any>,
 >(key: { key: string }, value: T) {
-	(game as any).settings!.set(MODULE_ID as any, key.key as any, value);
+	(game as any).settings?.set(MODULE_ID as any, key.key as any, value);
 }

@@ -1,10 +1,10 @@
+import { initializeMacros } from "../macros";
+import { initializeSettings } from "../settings";
+import { CustomAdventureImporter } from "../sheets/importer";
 import CustomJournalSheet from "../sheets/journal";
 import CustomJournalTextPageSheet from "../sheets/text-page";
-import { initializeSettings } from "../settings";
 import { initializeTemplates } from "../templates";
 import { info } from "../utilities/logging";
-import { initializeMacros } from "../macros";
-import { CustomAdventureImporter } from "../sheets/importer";
 
 // Called on `init` hook.
 export function onInit() {

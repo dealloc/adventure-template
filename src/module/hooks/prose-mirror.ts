@@ -32,11 +32,10 @@ export function onGetProseMirrorMenuDropDowns(menu: any, dropdowns: any) {
 				class: "pf2e-as-encounter",
 				title: "Encounter block",
 				async cmd(state: any, dispatch: any) {
-					const template =
-						await foundry.applications.handlebars.renderTemplate(
-							asset("/templates/editor/encounter.hbs"),
-							{},
-						);
+					const template = await foundry.applications.handlebars.renderTemplate(
+						asset("/templates/editor/encounter.hbs"),
+						{},
+					);
 					_insertHtml(state, dispatch, template);
 
 					return true; // Command executed successfully
@@ -47,11 +46,10 @@ export function onGetProseMirrorMenuDropDowns(menu: any, dropdowns: any) {
 				class: "pf2e-as-statblock",
 				title: "Stat block",
 				async cmd(state: any, dispatch: any) {
-					const template =
-						await foundry.applications.handlebars.renderTemplate(
-							asset("/templates/editor/statblock.hbs"),
-							{},
-						);
+					const template = await foundry.applications.handlebars.renderTemplate(
+						asset("/templates/editor/statblock.hbs"),
+						{},
+					);
 					_insertHtml(state, dispatch, template);
 
 					return true; // Command executed successfully
@@ -62,11 +60,10 @@ export function onGetProseMirrorMenuDropDowns(menu: any, dropdowns: any) {
 				class: "pf2e-as-aside",
 				title: "Aside block",
 				async cmd(state: any, dispatch: any) {
-					const template =
-						await foundry.applications.handlebars.renderTemplate(
-							asset("/templates/editor/aside.hbs"),
-							{},
-						);
+					const template = await foundry.applications.handlebars.renderTemplate(
+						asset("/templates/editor/aside.hbs"),
+						{},
+					);
 					_insertHtml(state, dispatch, template);
 
 					return true; // Command executed successfully
@@ -76,14 +73,11 @@ export function onGetProseMirrorMenuDropDowns(menu: any, dropdowns: any) {
 				action: "pf2e-as-narrate",
 				class: "pf2e-as-narrate",
 				title: "Narrate",
-				cmd: foundry.prosemirror.commands.wrapIn(
-					menu.schema.nodes.section,
-					{
-						_preserve: {
-							class: "narrate",
-						},
+				cmd: foundry.prosemirror.commands.wrapIn(menu.schema.nodes.section, {
+					_preserve: {
+						class: "narrate",
 					},
-				),
+				}),
 			},
 			{
 				action: "pf2e-as-year",
@@ -92,12 +86,9 @@ export function onGetProseMirrorMenuDropDowns(menu: any, dropdowns: any) {
 				mark: menu.schema.marks.span,
 				attrs: { _preserve: { class: "ar" } },
 				priority: 1,
-				cmd: foundry.prosemirror.commands.toggleMark(
-					menu.schema.marks.span,
-					{
-						_preserve: { class: "ar" },
-					},
-				),
+				cmd: foundry.prosemirror.commands.toggleMark(menu.schema.marks.span, {
+					_preserve: { class: "ar" },
+				}),
 			},
 			{
 				action: "pf2e-as-banner",

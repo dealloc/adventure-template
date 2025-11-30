@@ -1,6 +1,6 @@
 import blankMacro from "./macros/blank-macro";
-import { getModule } from "./utilities/module";
 import { debug } from "./utilities/logging";
+import { getModule } from "./utilities/module";
 
 export const macros: Record<string, ModuleMacro> = {
 	blankMacro,

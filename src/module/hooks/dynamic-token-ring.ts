@@ -4,8 +4,9 @@ import { asset } from "../utilities/module";
 export function onInitializeDynamicTokenRingConfig(
 	ringConfig: TokenRingConfig,
 ) {
-	const ringData = new (foundry.canvas.placeables.tokens
-		.DynamicRingData as any)({
+	const ringData = new (
+		foundry.canvas.placeables.tokens.DynamicRingData as any
+	)({
 		label: `${MODULE_NAME} Ring`,
 		spritesheet: asset("/assets/spritesheets/rings.json"),
 	});

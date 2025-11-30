@@ -1,5 +1,5 @@
-import { asset } from "./utilities/module";
 import { debug } from "./utilities/logging";
+import { asset } from "./utilities/module";
 
 /** This will request Foundry to pre-load and cache all template files. */
 export function initializeTemplates() {

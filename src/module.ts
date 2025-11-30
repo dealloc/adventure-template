@@ -1,13 +1,13 @@
 import "./styles/module.scss";
 import "./module/sheets/journal";
 import "./module/sheets/text-page";
-import { onGetProseMirrorMenuDropDowns } from "./module/hooks/prose-mirror";
-import { onInit } from "./module/hooks/init";
+import { onAdventureImported } from "./module/hooks/adventure-imported";
 import { onInitializeDynamicTokenRingConfig } from "./module/hooks/dynamic-token-ring";
+import { onInit } from "./module/hooks/init";
+import { onOneTimeSetup } from "./module/hooks/one-time-setup";
+import { onGetProseMirrorMenuDropDowns } from "./module/hooks/prose-mirror";
 import { onReady } from "./module/hooks/ready";
 import { onSequencerReady } from "./module/hooks/sequencer-ready";
-import { onOneTimeSetup } from "./module/hooks/one-time-setup";
-import { onAdventureImported } from "./module/hooks/adventure-imported";
 
 // First event in Foundry's lifecycle. Not much functionality is initialised but we mostly use this to setup things like
 // settings, macros and so forth.
