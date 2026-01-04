@@ -75,6 +75,18 @@ After copying this template, you'll want to update the default slug (`adventure-
 - `/package.json`
     - update `name` and `description` at the top of the file
 
+Next you'll need to link your development environments to the module directory of Foundry.
+
+First you'll need to find where that is, by default Foundry stores them in `%LOCALAPPDATA%\FoundryVTT\Data` on Windows.
+You can also right click on Foundry in your taskbar and click `Browse User Data` (this also works on Mac).
+
+Once you've found your user data, navigate to the `modules` folder and open a terminal there (on Windows you can `SHIFT+RIGHT CLICK` and select "Open Terminal").
+Then run the following command:
+```powershell
+# Windows
+New-Item -ItemType SymbolicLink -Path adventure-template -Value <PATH TO MODULE>/dist
+```
+
 ## Build System
 
 This template uses [Vite](https://vitejs.dev/) as the build system, which provides:
